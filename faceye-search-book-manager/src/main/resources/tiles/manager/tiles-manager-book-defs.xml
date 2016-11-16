@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:book 业务对像:Book 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Book 管理 首页(列表页) -->
+	<definition name="book.book.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="book.book.center"></put-attribute>
+	</definition>
+	<definition name="book.book.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/book/book_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Book 新增,编辑页面 -->
+	<definition name="book.book.update" extends="default.manager">
+	    <put-attribute name="default-center" value="book.book.update.center"></put-attribute>
+	</definition>
+	<definition name="book.book.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/book/book_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Book 明细页 -->
+	<definition name="book.book.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="book.book.detail.center"></put-attribute>
+	</definition>
+	<definition name="book.book.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/book/book_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

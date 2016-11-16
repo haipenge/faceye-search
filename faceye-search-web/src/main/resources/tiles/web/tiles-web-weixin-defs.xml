@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:weixin 业务对像:Weixin 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Weixin 管理 首页(列表页) -->
+    <definition name="weixin.web" template="/component/weixin/template/default.jsp">
+        <put-attribute name="default-center" value="/component/weixin/template/default_center.jsp"></put-attribute>
+        <put-attribute name="default-footer" value="/component/weixin/template/default_footer.jsp"></put-attribute>
+    </definition>
+	<definition name="weixin.weixin.home" extends="weixin.web">
+	    <put-attribute name="default-center" value="/component/weixin/weixin/weixin_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Weixin 明细页 -->
+	<definition name="weixin.weixin.detail" extends="weixin.web">
+	    <put-attribute name="default-center" value="/component/weixin/weixin/weixin_detail.jsp"></put-attribute>
+	</definition>
+	
+	<!-- qq 明细页 -->
+	<definition name="weixin.qq.detail" extends="weixin.web">
+	    <put-attribute name="default-center" value="/component/weixin/weixin/qq_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

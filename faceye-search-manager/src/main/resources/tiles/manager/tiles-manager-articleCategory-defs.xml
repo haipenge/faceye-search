@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:search 业务对像:ArticleCategory 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- ArticleCategory 管理 首页(列表页) -->
+	<definition name="search.articleCategory.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="search.articleCategory.center"></put-attribute>
+	</definition>
+	<definition name="search.articleCategory.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/articleCategory/articleCategory_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- ArticleCategory 新增,编辑页面 -->
+	<definition name="search.articleCategory.update" extends="default.manager">
+	    <put-attribute name="default-center" value="search.articleCategory.update.center"></put-attribute>
+	</definition>
+	<definition name="search.articleCategory.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/articleCategory/articleCategory_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- ArticleCategory 明细页 -->
+	<definition name="search.articleCategory.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="search.articleCategory.detail.center"></put-attribute>
+	</definition>
+	<definition name="search.articleCategory.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/articleCategory/articleCategory_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

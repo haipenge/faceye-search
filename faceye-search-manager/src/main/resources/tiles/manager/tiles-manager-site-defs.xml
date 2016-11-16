@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:spider 业务对像:Site 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Site 管理 首页(列表页) -->
+	<definition name="spider.site.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.site.center"></put-attribute>
+	</definition>
+	<definition name="spider.site.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/site/site_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Site 新增,编辑页面 -->
+	<definition name="spider.site.update" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.site.update.center"></put-attribute>
+	</definition>
+	<definition name="spider.site.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/site/site_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Site 明细页 -->
+	<definition name="spider.site.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.site.detail.center"></put-attribute>
+	</definition>
+	<definition name="spider.site.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/site/site_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

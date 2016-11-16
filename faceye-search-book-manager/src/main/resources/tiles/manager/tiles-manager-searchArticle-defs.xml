@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:search 业务对像:Article 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Article 管理 首页(列表页) -->
+	<definition name="search.searchArticle.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="search.searchArticle.center"></put-attribute>
+	</definition>
+	<definition name="search.searchArticle.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/searchArticle/article_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Article 新增,编辑页面 -->
+	<definition name="search.searchArticle.update" extends="default.manager">
+	    <put-attribute name="default-center" value="search.searchArticle.update.center"></put-attribute>
+	</definition>
+	<definition name="search.searchArticle.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/searchArticle/article_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Article 明细页 -->
+	<definition name="search.searchArticle.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="search.searchArticle.detail.center"></put-attribute>
+	</definition>
+	<definition name="search.searchArticle.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/searchArticle/article_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:spider 业务对像:Link 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Link 管理 首页(列表页) -->
+	<definition name="spider.link.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.link.center"></put-attribute>
+	</definition>
+	<definition name="spider.link.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/link/link_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Link 新增,编辑页面 -->
+	<definition name="spider.link.update" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.link.update.center"></put-attribute>
+	</definition>
+	<definition name="spider.link.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/link/link_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Link 明细页 -->
+	<definition name="spider.link.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="spider.link.detail.center"></put-attribute>
+	</definition>
+	<definition name="spider.link.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/spider/link/link_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

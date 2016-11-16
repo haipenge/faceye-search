@@ -1,0 +1,58 @@
+package com.faceye.test.component.search.repository;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.Assert;
+
+import com.faceye.component.search.entity.Book;
+import com.faceye.component.search.repository.jpa.BookRepository;
+import com.faceye.test.feature.repository.BaseRepositoryTestCase;
+/**
+ * Book DAO 测试
+ * @author @haipenge 
+ * haipenge@gmail.com
+*  Create Date:2014年5月26日
+ */
+public class BookRepositoryTestCase extends BaseRepositoryTestCase {
+	@Autowired
+	private BookRepository bookRepository = null;
+
+	@Before
+	public void before() throws Exception {
+//		this.bookRepository.deleteAll();
+	}
+
+	@After
+	public void after() throws Exception {
+
+	}
+
+	@Test
+	public void testSave() throws Exception {
+		Book entity = new Book();
+		this.bookRepository.save(entity);
+		Iterable<Book> entities = this.bookRepository.findAll();
+		Assert.isTrue(entities.iterator().hasNext());
+	}
+
+	@Test
+	public void testDelete() throws Exception {
+		Book entity = new Book();
+		this.bookRepository.save(entity);
+        this.bookRepository.delete(entity.getId());
+        Iterable<Book> entities = this.bookRepository.findAll();
+		Assert.isTrue(!entities.iterator().hasNext());
+	}
+
+	@Test
+	public void testFindOne() throws Exception {
+		Book entity = new Book();
+		this.bookRepository.save(entity);
+		Book book=this.bookRepository.findOne(entity.getId());
+		Assert.isTrue(book!=null);
+	}
+
+	
+}

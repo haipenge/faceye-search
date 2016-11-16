@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:book 业务对像:Section 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Section 管理 首页(列表页) -->
+	<definition name="book.section.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="book.section.center"></put-attribute>
+	</definition>
+	<definition name="book.section.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/section/section_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Section 新增,编辑页面 -->
+	<definition name="book.section.update" extends="default.manager">
+	    <put-attribute name="default-center" value="book.section.update.center"></put-attribute>
+	</definition>
+	<definition name="book.section.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/section/section_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Section 明细页 -->
+	<definition name="book.section.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="book.section.detail.center"></put-attribute>
+	</definition>
+	<definition name="book.section.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/book/section/section_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

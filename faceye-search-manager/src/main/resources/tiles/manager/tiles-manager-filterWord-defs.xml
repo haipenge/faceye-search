@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:parse 业务对像:FilterWord 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- FilterWord 管理 首页(列表页) -->
+	<definition name="parse.filterWord.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.filterWord.center"></put-attribute>
+	</definition>
+	<definition name="parse.filterWord.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/filterWord/filterWord_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- FilterWord 新增,编辑页面 -->
+	<definition name="parse.filterWord.update" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.filterWord.update.center"></put-attribute>
+	</definition>
+	<definition name="parse.filterWord.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/filterWord/filterWord_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- FilterWord 明细页 -->
+	<definition name="parse.filterWord.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.filterWord.detail.center"></put-attribute>
+	</definition>
+	<definition name="parse.filterWord.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/filterWord/filterWord_detail.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

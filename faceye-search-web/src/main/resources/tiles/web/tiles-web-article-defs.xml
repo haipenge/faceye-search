@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Article home ,Site Home page -->
+	<definition name="search.article.home" extends="default.web">
+		<put-attribute name="default-center"
+			value="/component/search/article/article_center.jsp"></put-attribute>
+	</definition>
+	<!-- Article Detail. -->
+	<definition name="search.article.detail" extends="default.web">
+		<put-attribute name="default-center" value="search.article.detail.center"></put-attribute>
+	</definition>
+	<definition name="search.article.detail.center" extends="default.center">
+		<put-attribute name="default-center-left"
+			value="/component/search/article/article_detail_center_left.jsp"></put-attribute>
+		<put-attribute name="default-center-right"
+			value="/component/search/article/article_detail_center_right.jsp"></put-attribute>
+	</definition>
+	
+	<!-- category article home  -->
+	<definition name="search.category.article.home" extends="default.web">
+		<put-attribute name="default-center" value="/component/search/article/category_article_center.jsp"></put-attribute>
+	</definition>
+
+
+</tiles-definitions>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:parse 业务对像:ParseResult 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- ParseResult 管理 首页(列表页) -->
+	<definition name="parse.parseResult.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.parseResult.center"></put-attribute>
+	</definition>
+	<definition name="parse.parseResult.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/parseResult/parseResult_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- ParseResult 新增,编辑页面 -->
+	<definition name="parse.parseResult.update" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.parseResult.update.center"></put-attribute>
+	</definition>
+	<definition name="parse.parseResult.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/parseResult/parseResult_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- ParseResult 明细页 -->
+	<definition name="parse.parseResult.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.parseResult.detail.center"></put-attribute>
+	</definition>
+	<definition name="parse.parseResult.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/parseResult/parseResult_detail.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Parse 解析结果测试页面 -->
+	<definition name="parse.parseResult.test" extends="default.manager">
+	    <put-attribute name="default-center" value="parse.parseResult.test.center"></put-attribute>
+	</definition>
+	<definition name="parse.parseResult.test.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/parse/parseResult/parseResult_test.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

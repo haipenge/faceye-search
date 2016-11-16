@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- Default Single Page -->
+	<definition name="default.web" template="/component/core/template/web/default.jsp">
+		<put-attribute name="default-header" value="/component/core/template/web/default_header.jsp"></put-attribute>
+		<put-attribute name="default-center" value="/component/core/template/web/default_center.jsp"></put-attribute>
+		<put-attribute name="default-footer" value="/component/core/template/web/default_footer.jsp"></put-attribute>
+	</definition>
+	<definition name="default.about" extends="default.web">
+		<put-attribute name="default-center" value="/component/core/template/web/default_about.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="default.center" template="/component/core/template/web/default_center_template.jsp">
+	    <put-attribute name="default-center-right" value="/component/core/template/web/default_center_right.jsp"></put-attribute>
+	    <put-attribute name="default-center-left" value="/component/core/template/web/default_center_left.jsp"></put-attribute>
+	</definition>
+
+	<!-- Public Message -->
+	<definition name="default.msg" extends="default.web">
+		<put-attribute name="default-center" value="/component/core/msg/default.jsp"></put-attribute>
+	</definition>
+
+	<!-- Default error -->
+
+	<definition name="default.error" extends="default.web">
+		<put-attribute name="default-center" value="/component/core/error/default.jsp"></put-attribute>
+	</definition>
+	
+</tiles-definitions>

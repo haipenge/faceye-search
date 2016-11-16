@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:weixin 业务对像:Weixin 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Weixin 管理 首页(列表页) -->
+	<definition name="weixin.weixin.manager" extends="default.manager">
+	    <put-attribute name="default-center" value="weixin.weixin.center"></put-attribute>
+	</definition>
+	<definition name="weixin.weixin.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/weixin/weixin/weixin_center.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Weixin 新增,编辑页面 -->
+	<definition name="weixin.weixin.update" extends="default.manager">
+	    <put-attribute name="default-center" value="weixin.weixin.update.center"></put-attribute>
+	</definition>
+	<definition name="weixin.weixin.update.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/weixin/weixin/weixin_update.jsp"></put-attribute>
+	</definition>
+	
+	<!-- Weixin 明细页 -->
+	<!-- 
+	<definition name="weixin.weixin.detail" extends="default.manager">
+	    <put-attribute name="default-center" value="weixin.weixin.detail.center"></put-attribute>
+	</definition>
+	<definition name="weixin.weixin.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/weixin/weixin/weixin_detail.jsp"></put-attribute>
+	</definition>
+	 -->
+	
+</tiles-definitions>
