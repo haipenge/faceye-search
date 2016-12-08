@@ -158,7 +158,7 @@
 				<filtering>true</filtering>
 			</resource>
 			<resource>
-				<directory>../../faceye-redis/faceye-redis-manager/src/main/resources</directory>
+				<directory>../../faceye-redis-manager/src/main/resources</directory>
 				<includes>
 					<include>conf/applicationContext-redis.xml</include>
 					<include>redis.properties</include>

@@ -135,7 +135,7 @@
 				<filtering>true</filtering>
 			</resource>
 			<resource>
-				<directory>../../faceye-security/faceye-security-manager/src/main/resources</directory>
+				<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/resources</directory>
 				<includes>
 					<include>i18n/**</include>
 					<include>tiles/manager/*.*</include>
@@ -173,7 +173,7 @@
 						<descriptor>src/main/webapp/WEB-INF/web.xml</descriptor>
 
 						<baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-							<resourcesAsCSV>src/main/webapp,../../faceye-feature/src/main/webapp,../../faceye-security/faceye-security-manager/src/main/webapp,../../faceye-stock/faceye-stock-manager/src/main/webapp</resourcesAsCSV>
+							<resourcesAsCSV>src/main/webapp,../../faceye-feature/src/main/webapp,../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp,../../faceye-stock/faceye-stock-manager/src/main/webapp</resourcesAsCSV>
 						</baseResource>
 					</webApp>
 				</configuration>
@@ -361,7 +361,7 @@
 									<filtering>true</filtering>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/resources</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/resources</directory>
 									<includes>
 										<include>**/*zh_CN.properties</include>
 										<include>**/**/tiles*.xml</include>
@@ -437,10 +437,10 @@
 									<filtering>true</filtering>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/webapp</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/resources</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/resources</directory>
 									<includes>
 										<include>**/*zh_CN.properties</include>
 										<include>**/**/tiles*.xml</include>
@@ -518,10 +518,10 @@
 									<filtering>true</filtering>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/webapp</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/resources</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/resources</directory>
 									<includes>
 										<include>**/*zh_CN.properties</include>
 										<include>**/**/tiles*.xml</include>
@@ -598,10 +598,10 @@
 									<filtering>true</filtering>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/webapp</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
 								<resource>
-									<directory>../../faceye-security/faceye-security-manager/src/main/resources</directory>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/resources</directory>
 									<includes>
 										<include>**/*zh_CN.properties</include>
 										<include>**/**/tiles*.xml</include>
