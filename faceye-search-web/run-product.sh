@@ -7,7 +7,7 @@ if [ $1 == "stop" ];then
   echo `ps aux|grep resin-search-web |grep -v grep  | awk '{print $2}'|xargs kill -9`
   echo '... resin-search is stop now.'
 else
-  mvn clean compile war:war -D maven.test.skip=true -P test
+  mvn clean compile war:war -D maven.test.skip=true -P product
   $resin_home/bin/resin.sh stop
   sleep 15
   echo `ps aux|grep resin-search-web |grep -v grep  | awk '{print $2}'|xargs kill -9`
