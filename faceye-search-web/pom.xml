@@ -488,9 +488,15 @@
 									<directory>src/main/webapp</directory>
 								</resource>
 								<resource>
-									<directory>../faceye-fecurity/src/main/webapp</directory>
-									<filtering>true</filtering>
+									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
 								</resource>
+								<resource>
+								  <directory>../../faceye-code/faceye-code-web/src/main/webapp</directory>
+								</resource>
+								<resource>
+									<directory>../../faceye-feature/src/main/webapp</directory>
+								</resource>
+
 							</webResources>
 							<resourceEncoding>UTF-8</resourceEncoding>
 							<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
