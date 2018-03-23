@@ -67,7 +67,7 @@ public class CrawlThread extends BaseThread {
 	private String key = "";
 
 	// public CrawlThread(CloseableHttpClient httpClient) {
-	// PropertyService propertyService = BeanContextUtil.getInstance().getBean(PropertyService.class);
+	// PropertyService propertyService = BeanContextUtil.getBean(PropertyService.class);
 	// if (null != propertyService) {
 	// String configSeconds = propertyService.get("x.spider.crawl.thread.sleep.seconds");
 	// THREAD_SLEEP_SECONDS = StringUtils.isEmpty(configSeconds) ? DEFAULT_THREAD_SLEEP_SECONDS : Integer.parseInt(configSeconds);
@@ -78,14 +78,14 @@ public class CrawlThread extends BaseThread {
 	// }
 
 	public CrawlThread(String key) {
-		propertyService = BeanContextUtil.getInstance().getBean(PropertyService.class);
+		propertyService = BeanContextUtil.getBean(PropertyService.class);
 		if (null != propertyService) {
 			String configSeconds = propertyService.get("spider.crawl.thread.sleep.seconds");
 			THREAD_SLEEP_SECONDS = StringUtils.isEmpty(configSeconds) ? DEFAULT_THREAD_SLEEP_SECONDS : Integer.parseInt(configSeconds);
-			linkService = BeanContextUtil.getInstance().getBean(LinkService.class);
-			sequenceService = BeanContextUtil.getInstance().getBean(SequenceService.class);
-			crawlResultService = BeanContextUtil.getInstance().getBean("crawlResultServiceImpl");
-			imageService = BeanContextUtil.getInstance().getBean(ImageService.class);
+			linkService = BeanContextUtil.getBean(LinkService.class);
+			sequenceService = BeanContextUtil.getBean(SequenceService.class);
+			crawlResultService = BeanContextUtil.getBean("crawlResultServiceImpl");
+			imageService = BeanContextUtil.getBean(ImageService.class);
 		} else {
 			THREAD_SLEEP_SECONDS = DEFAULT_THREAD_SLEEP_SECONDS;
 		}
@@ -107,7 +107,7 @@ public class CrawlThread extends BaseThread {
 
 	public void doBusiness() {
 		try {
-			MultiQueueService<Link> linkQueueService = BeanContextUtil.getInstance().getBean("linkQueueService");
+			MultiQueueService<Link> linkQueueService = BeanContextUtil.getBean("linkQueueService");
 			Boolean isContinue = Boolean.TRUE;
 			int crawlPages = 0;
 			while (isContinue) {

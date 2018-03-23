@@ -22,7 +22,7 @@ import com.faceye.component.search.service.MovieService;
 import com.faceye.feature.repository.mongo.DynamicSpecifications;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 import com.faceye.feature.util.Json;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.util.http.Http;
 import com.querydsl.core.types.Predicate;
 
@@ -72,7 +72,7 @@ public class MovieServiceImpl extends BaseMongoServiceImpl<Movie, Long, MovieRep
 	}
 	
 	@Override
-	public Page<Movie> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Movie> getPage(Map<String, Object> searchParams, int page, int size)   {
 		if (page != 0) {
 			page = page - 1;
 		}

@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.util.HtmlUtil;
 import com.faceye.component.parse.util.RegexpConstants;
@@ -21,28 +21,28 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String regexp = "<a\\sclass=\"titlelnk\"\\shref=\"(.+?)\"\\starget=\"_blank\">.+?</a>";
 		String path = "/work/Work/spider/crawl/20140708-21/com/cnblogs/20140708-213535-39.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), regexp);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	@Test
 	public void testDistillLinks() throws Exception {
 		String path = "/work/Work/spider/crawl/20140708-21/com/cnblogs/20140708-213232-3.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), RegexpConstants.DISTIL_A_HREF);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	@Test
 	public void testDistillTitle() throws Exception {
 		String path = "/work/Work/spider/crawl/20140708-21/com/cnblogs/20140708-213232-3.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), RegexpConstants.DISTIAL_HTML_TITILE);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	@Test
 	public void testDistillBody() throws Exception {
 		String path = "/work/Work/spider/crawl/20140709-23/com/cnblogs/20140709-230801-14.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), RegexpConstants.DISTIL_CNBLOGS_BODY);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String path = "/work/Work/spider/crawl/20140711-13/com/cnblogs/20140711-134828-12.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), RegexpConstants.DISTIL_CNBLOGS_LIST_LINKS);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	/**
@@ -74,7 +74,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String path = "/20140723-00/com/easou/20140723-003623-1.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), regex);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	/**
@@ -91,7 +91,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String path = "/20140723-13/com/easou/20140723-135633-52.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), regex);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
 	@Test
@@ -101,11 +101,11 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String title = "第51章一个篮球引发的血案（下）";
 		List<Map<String, String>> res = RegexpUtil.match(title, regexp);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 		title = "第51章   一个篮球引发  的血案（下）";
 		res = RegexpUtil.match(title, regexp);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 
 		
 	}
@@ -132,7 +132,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		RegexpUtil.print(res);
 		url=url.replaceAll("&amp;p=\\d", "");
 		logger.debug(url);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 	
 	/**
@@ -150,7 +150,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String path = "/20140724-02/com/easou/20140724-020017-4634.html";
 		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), regexp);
 		RegexpUtil.print(res);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 	
 	@Test
@@ -162,7 +162,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		logger.debug("-----------------------------------------------------------------");
 		String html=HtmlUtil.getInstance().replaceHtml(res.get(0).values().iterator().next().toString());
 		logger.debug(html);
-		Assert.isTrue(CollectionUtils.isNotEmpty(res));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 	
 	/**
@@ -177,10 +177,10 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		String regexp="^[\\w].+page=[\\d]{1}$";
 		String url="http://segmentfault.com/blogs/newest?page=580";
 		boolean isMatch=RegexpUtil.isMatch(url, regexp);
-		Assert.isTrue(!isMatch);
+		Assert.assertTrue(!isMatch);
 		 url="http://segmentfault.com/blogs/newest?page=5";
 		isMatch=RegexpUtil.isMatch(url, regexp);
-		Assert.isTrue(isMatch);
+		Assert.assertTrue(isMatch);
 	}
 	
 	@Test
@@ -195,7 +195,7 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 		logger.debug(">>FaceYe -->替换后的长度是:"+length);
 		logger.debug(">>FaceYe -->替换后的网页内容是:\n"+content);
 		logger.debug(">>FaceYe -->URL pattern is:"+RegexpConstants.PATTERN_URL);
-		Assert.isTrue(isMatch);
+		Assert.assertTrue(isMatch);
 	}
 	
 	

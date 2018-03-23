@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.entity.Link;
 import com.faceye.component.spider.repository.jpa.LinkRepository;
@@ -34,24 +34,24 @@ public class LinkRepositoryTestCase extends BaseRepositoryTestCase {
 		Link entity = new Link();
 		this.linkRepository.save(entity);
 		Iterable<Link> entities = this.linkRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Link entity = new Link();
 		this.linkRepository.save(entity);
-        this.linkRepository.delete(entity.getId());
+        this.linkRepository.deleteById(entity.getId());
         Iterable<Link> entities = this.linkRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Link entity = new Link();
 		this.linkRepository.save(entity);
-		Link link=this.linkRepository.findOne(entity.getId());
-		Assert.isTrue(link!=null);
+		Link link=this.linkRepository.findById(entity.getId()).get();
+		Assert.assertTrue(link!=null);
 	}
 
 	

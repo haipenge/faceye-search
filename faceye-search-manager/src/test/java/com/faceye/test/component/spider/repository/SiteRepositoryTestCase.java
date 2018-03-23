@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.doc.Site;
 import com.faceye.component.spider.repository.mongo.SiteRepository;
@@ -37,24 +37,24 @@ public class SiteRepositoryTestCase extends BaseRepositoryTestCase {
 		Site entity = new Site();
 		this.siteRepository.save(entity);
 		Iterable<Site> entities = this.siteRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Site entity = new Site();
 		this.siteRepository.save(entity);
-        this.siteRepository.delete(entity.getId());
+        this.siteRepository.deleteById(entity.getId());
         Iterable<Site> entities = this.siteRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Site entity = new Site();
 		this.siteRepository.save(entity);
-		Site site=this.siteRepository.findOne(entity.getId());
-		Assert.isTrue(site!=null);
+		Site site=this.siteRepository.findById(entity.getId()).get();
+		Assert.assertTrue(site!=null);
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class SiteRepositoryTestCase extends BaseRepositoryTestCase {
 		site.setId(this.sequenceService.getNextSequence(Site.class.getName()));
 		this.siteRepository.save(site);
 		Site querySite=this.siteRepository.getSiteByName(name);
-		Assert.isTrue(null!=querySite);
+		Assert.assertTrue(null!=querySite);
 		
 	}
 

@@ -18,7 +18,7 @@ public class OSChinaPushServiceTestCase extends BaseServiceTestCase {
 	@Test
 	public void testDoLogin() throws Exception{
 		boolean res=this.oschinaPushService.doLogin();
-		Assert.isTrue(res);
+		Assert.assertTrue(res);
 	}
 	
 	@Test

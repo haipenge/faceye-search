@@ -93,7 +93,7 @@ public class CrawlResultServiceImpl extends BaseMongoServiceImpl<CrawlResult, Lo
 	}
 
 	// @Override
-	// public Page<CrawlResult> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	// public Page<CrawlResult> getPage(Map<String, Object> searchParams, int page, int size)   {
 	// if (page != 0) {
 	// page = page - 1;
 	// }

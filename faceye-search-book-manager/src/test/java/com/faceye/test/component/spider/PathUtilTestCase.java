@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.util.RegexpUtil;
 import com.faceye.component.spider.util.PathUtil;
@@ -21,14 +21,14 @@ public class PathUtilTestCase {
 		url="http://segmentfault.com/blog/sequoiadb/1190000002492514";
 		String res = PathUtil.generatePath(url);
 		logger.debug(res);
-		Assert.isTrue(StringUtils.isNotEmpty(res));
+		Assert.assertTrue(StringUtils.isNotEmpty(res));
 	}
 
 	@Test
 	public void testEndWith() throws Exception {
 		String url = "http://home.cnblogs.com/blog/page/5/";
 		boolean res = url.endsWith("/5/");
-		Assert.isTrue(res);
+		Assert.assertTrue(res);
 	}
 
 	@Test
@@ -36,14 +36,14 @@ public class PathUtilTestCase {
 		String url = "http://www.cnblogs.com/cate/java/";
 		String regexp = "[a-z]*?";
 		boolean res = url.endsWith(regexp);
-		Assert.isTrue(res);
+		Assert.assertTrue(res);
 	}
 	@Test
 	public void testGetSubjectFromUrl() throws Exception{
 		String sourceUrl="http://www.yiibai.com/tika/tika_extracting_html_document.html";
 		sourceUrl=sourceUrl.replace("http://www.yiibai.com", "");
 		String subejctName=sourceUrl.substring(1, sourceUrl.lastIndexOf("/"));
-		Assert.isTrue(StringUtils.equals("tika", subejctName));
+		Assert.assertTrue(StringUtils.equals("tika", subejctName));
 	}
 	/**
 	 * 测试翻页是否匹配
@@ -58,10 +58,10 @@ public class PathUtilTestCase {
 		String regexp="^[\\w].+page=[\\d]{1}$";
 		String url="http://segmentfault.com/blogs/recommend?page=5";
 		boolean isMatch=RegexpUtil.isMatch(url, regexp);
-		Assert.isTrue(isMatch);
+		Assert.assertTrue(isMatch);
 		url="http://segmentfault.com/blogs/recommend?page=50";
 		isMatch=RegexpUtil.isMatch(url, regexp);
-		Assert.isTrue(!isMatch);
+		Assert.assertTrue(!isMatch);
 	}
 	@Test
 	public void testReplace() throws Exception{
@@ -72,7 +72,7 @@ public class PathUtilTestCase {
 		String replacedUrl="/upload/image/20150203/1422929840556055005.png";
 		//String testUrl=url.replaceAll(replaceWith, "");
 		String testUrl=url.replace(replaceWith, "");
-		Assert.isTrue(StringUtils.equals(replacedUrl, testUrl));
+		Assert.assertTrue(StringUtils.equals(replacedUrl, testUrl));
 		
 	}
 }

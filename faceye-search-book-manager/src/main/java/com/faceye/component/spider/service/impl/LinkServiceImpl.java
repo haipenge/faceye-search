@@ -27,7 +27,7 @@ import com.faceye.component.spider.service.SiteService;
 import com.faceye.component.spider.service.domain.DomainLink;
 import com.faceye.feature.service.SequenceService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.querydsl.core.BooleanBuilder;
 
 /**
@@ -148,7 +148,7 @@ public class LinkServiceImpl extends BaseMongoServiceImpl<Link, Long, LinkReposi
 	}
 
 	@Override
-	public Page<Link> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Link> getPage(Map<String, Object> searchParams, int page, int size)   {
 		if (page != 0) {
 			page = page - 1;
 		}

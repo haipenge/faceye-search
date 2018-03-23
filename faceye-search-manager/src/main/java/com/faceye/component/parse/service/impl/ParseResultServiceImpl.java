@@ -40,7 +40,7 @@ import com.faceye.component.spider.util.URLUtils;
 //import com.faceye.component.spider.util.Http;
 import com.faceye.feature.service.SequenceService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 
@@ -453,7 +453,7 @@ public class ParseResultServiceImpl extends BaseMongoServiceImpl<ParseResult, Lo
 	}
 
 	@Override
-	public Page<ParseResult> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<ParseResult> getPage(Map<String, Object> searchParams, int page, int size)   {
 		if (page != 0) {
 			page = page - 1;
 		}

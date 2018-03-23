@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.util.HtmlUtil;
 import com.faceye.component.parse.util.RegexpConstants;
@@ -32,7 +32,7 @@ public class HtmlUtilTestCase extends BaseServiceTestCase {
 	  logger.debug(">>Distill Body is:"+content);
       String res=HtmlUtil.getInstance().replaceHtml(content);
       logger.debug("Res is:"+res);
-      Assert.isTrue(StringUtils.isNotEmpty(res));
+      Assert.assertTrue(StringUtils.isNotEmpty(res));
   }
   @Test
   public void testReplaceAllHtml() throws Exception{
@@ -40,7 +40,7 @@ public class HtmlUtilTestCase extends BaseServiceTestCase {
 	  String content=FileUtil.getInstance().read(path);
 	  content=HtmlUtil.getInstance().replace(content, RegexpConstants.HTML_ALL);
 	  logger.debug(">>After replace all content is:"+content);
-	  Assert.isTrue(StringUtils.indexOf(content, "<")==-1);
+	  Assert.assertTrue(StringUtils.indexOf(content, "<")==-1);
   }
   @Test
   public void testDistillMeta() throws Exception{
@@ -48,7 +48,7 @@ public class HtmlUtilTestCase extends BaseServiceTestCase {
 	  String content=FileUtil.getInstance().read(path);
 	  List<Map<String,String>> matches=RegexpUtil.match(content, RegexpConstants.DISTILL_HTML_META);
 	  RegexpUtil.print(matches);
-	  Assert.isTrue(CollectionUtils.isNotEmpty(matches));
+	  Assert.assertTrue(CollectionUtils.isNotEmpty(matches));
   }
   
   

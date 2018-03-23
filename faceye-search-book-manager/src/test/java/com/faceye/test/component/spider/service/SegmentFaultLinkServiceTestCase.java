@@ -36,10 +36,10 @@ public class SegmentFaultLinkServiceTestCase extends BaseServiceTestCase {
 		Site site=this.siteService.getSiteByName(domain);
 		this.segmentFaultLinkService.saveInitLinks();
         Map searchParams=new HashMap();
-        Assert.isTrue(null!=site);
+        Assert.assertTrue(null!=site);
         searchParams.put("EQ|site.id", site.getId());
         Page<Link> page=this.linkService.getPage(searchParams, 1, 100);
-        Assert.isTrue(page!=null &&CollectionUtils.isNotEmpty(page.getContent())&&page.getContent().size()==100);
+        Assert.assertTrue(page!=null &&CollectionUtils.isNotEmpty(page.getContent())&&page.getContent().size()==100);
         
         
 	}

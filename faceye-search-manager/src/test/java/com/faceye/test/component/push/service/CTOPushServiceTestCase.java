@@ -17,7 +17,7 @@ public class CTOPushServiceTestCase extends BaseServiceTestCase {
 	@Test
 	public void testLogin() throws Exception {
 		boolean res = this.ctoPushService.doLogin();
-		Assert.isTrue(res);
+		Assert.assertTrue(res);
 	}
 
 	@Test

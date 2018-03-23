@@ -8,7 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.doc.FilterWord;
 import com.faceye.component.parse.service.ParseResultService;
@@ -37,7 +37,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(parseResultService != null);
+		Assert.assertTrue(parseResultService != null);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		ParseResult entity = new ParseResult();
 //		this.parseResultService.save(entity);
 //		List<ParseResult> entites = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		ParseResult entity = new ParseResult();
 //		this.parseResultService.save(entity);
 //		List<ParseResult> entites = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -84,7 +84,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //			this.parseResultService.save(entity);
 //		}
 //		List<ParseResult> entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		this.parseResultService.save(entity);
 //		logger.debug(">>Entity id is:" + entity.getId());
 //		ParseResult e = this.parseResultService.get(entity.getId());
-//		Assert.isTrue(e != null);
+//		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		this.parseResultService.save(entity);
 //		this.parseResultService.remove(entity);
 //		List<ParseResult> entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -112,10 +112,10 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //			this.parseResultService.save(entity);
 //		}
 //		List<ParseResult> entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //		this.parseResultService.removeAllInBatch();
 //		entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.parseResultService.removeAll();
 //		List<ParseResult> entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -140,7 +140,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.parseResultService.removeInBatch(entities);
 //		entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -150,7 +150,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //			this.parseResultService.save(entity);
 //		}
 //		List<ParseResult> entities = this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -161,15 +161,15 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		}
 //		Map<String, Object> searchParams = new HashMap<String, Object>();
 //		Page<ParseResult> page = this.parseResultService.getPage(searchParams, 1, 5);
-//		Assert.isTrue(page != null && page.getSize() == 5);
+//		Assert.assertTrue(page != null && page.getSize() == 5);
 //		searchParams.put("EQ_name", "test-10");
 //		page = this.parseResultService.getPage(searchParams, 1, 5);
-//		Assert.isTrue(page != null && page.getTotalElements() == 1);
+//		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 //		searchParams = new HashMap<String, Object>();
 //		searchParams.put("LIKE_name", "test");
 //		page = this.parseResultService.getPage(searchParams, 1, 5);
 //
-//		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+//		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -182,7 +182,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //			id = entity.getId();
 //		}
 //		ParseResult e = this.parseResultService.get(id);
-//		Assert.isTrue(e != null);
+//		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -196,7 +196,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //			}
 //		}
 //		List<ParseResult> entities = this.parseResultService.getAll(ids);
-//		Assert.isTrue(entities != null && entities.size() == 5);
+//		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 
 	@Test
@@ -209,7 +209,7 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 //		parseResult.setCrawlResult(crawlResult);
 //		this.parseResultService.save(parseResult);
 //		List<ParseResult> parseResults=this.parseResultService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(parseResults));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(parseResults));
 	}
 	
 	@Test
@@ -224,6 +224,6 @@ public class ParseResultServiceTestCase extends BaseServiceTestCase {
 	@Test
 	public void testGetFilter() throws Exception{
 		List<FilterWord> words=this.parseResultService.testFilterWords(985L);
-		Assert.isTrue(CollectionUtils.isNotEmpty(words));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(words));
 	}
 }

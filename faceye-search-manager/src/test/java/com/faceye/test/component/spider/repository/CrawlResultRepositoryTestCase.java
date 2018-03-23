@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.doc.CrawlResult;
 import com.faceye.component.spider.repository.mongo.CrawlResultRepository;
@@ -34,24 +34,24 @@ public class CrawlResultRepositoryTestCase extends BaseRepositoryTestCase {
 		CrawlResult entity = new CrawlResult();
 		this.crawlResultRepository.save(entity);
 		Iterable<CrawlResult> entities = this.crawlResultRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		CrawlResult entity = new CrawlResult();
 		this.crawlResultRepository.save(entity);
-        this.crawlResultRepository.delete(entity.getId());
+        this.crawlResultRepository.deleteById(entity.getId());
         Iterable<CrawlResult> entities = this.crawlResultRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		CrawlResult entity = new CrawlResult();
 		this.crawlResultRepository.save(entity);
-		CrawlResult crawlResult=this.crawlResultRepository.findOne(entity.getId());
-		Assert.isTrue(crawlResult!=null);
+		CrawlResult crawlResult=this.crawlResultRepository.findById(entity.getId()).get();
+		Assert.assertTrue(crawlResult!=null);
 	}
 
 	

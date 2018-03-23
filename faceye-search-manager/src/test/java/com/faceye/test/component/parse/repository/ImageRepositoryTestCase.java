@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.doc.Image;
 import com.faceye.component.parse.repository.mongo.ImageRepository;
@@ -34,24 +34,24 @@ public class ImageRepositoryTestCase extends BaseRepositoryTestCase {
 		Image entity = new Image();
 		this.imageRepository.save(entity);
 		Iterable<Image> entities = this.imageRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Image entity = new Image();
 		this.imageRepository.save(entity);
-        this.imageRepository.delete(entity.getId());
+        this.imageRepository.deleteById(entity.getId());
         Iterable<Image> entities = this.imageRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Image entity = new Image();
 		this.imageRepository.save(entity);
-		Image image=this.imageRepository.findOne(entity.getId());
-		Assert.isTrue(image!=null);
+		Image image=this.imageRepository.findById(entity.getId()).get();
+		Assert.assertTrue(image!=null);
 	}
 
 	

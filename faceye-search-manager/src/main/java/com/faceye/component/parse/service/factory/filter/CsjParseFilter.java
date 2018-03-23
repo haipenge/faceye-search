@@ -51,7 +51,7 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 	synchronized public void filter(Document document, CrawlResult crawlResult, String content) {
 		// 如果是明细页
 		if (crawlResult.getLinkType() == 2) {
-			Link link = BeanContextUtil.getInstance().getBean(LinkService.class).get(crawlResult.getLinkId());
+			Link link = BeanContextUtil.getBean(LinkService.class).get(crawlResult.getLinkId());
 			if (link != null) {
 				String categoryKey = link.getDistributeChannel();
 				// <div class="biaoti">测你的智商有多高？</div>
@@ -131,11 +131,11 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 				}
 				QuestionnaireType questionnaireType = null;
 				if (StringUtils.isNotEmpty(categoryKey)) {
-					questionnaireType = BeanContextUtil.getInstance().getBean(QuestionnaireTypeService.class).getQuestionnaireTypeByType(categoryKey);
+					questionnaireType = BeanContextUtil.getBean(QuestionnaireTypeService.class).getQuestionnaireTypeByType(categoryKey);
 					if (questionnaireType == null) {
 						questionnaireType = new QuestionnaireType();
 						questionnaireType.setType(categoryKey);
-						BeanContextUtil.getInstance().getBean(QuestionnaireTypeService.class).save(questionnaireType);
+						BeanContextUtil.getBean(QuestionnaireTypeService.class).save(questionnaireType);
 					}
 				}
 				Questionnaire questionnaire = null;
@@ -147,7 +147,7 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 				if (questionnaireType != null) {
 					questionnaire.setQuestionnaireType(questionnaireType);
 				}
-				BeanContextUtil.getInstance().getBean(QuestionnaireService.class).save(questionnaire);
+				BeanContextUtil.getBean(QuestionnaireService.class).save(questionnaire);
 				if (StringUtils.isNotEmpty(questionContent)) {
 					logger.debug(">>FaceYe Question is:" + questionContent);
 					Result result = Json.toObject(questionContent, Result.class);
@@ -167,9 +167,9 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 						uploadFile.setStorePath(storePath);
 						uploadFile.setTargetEntityClassName(Questionnaire.class.getName());
 						uploadFile.setTargetEntityId(questionnaire.getId());
-						BeanContextUtil.getInstance().getBean(UploadFileService.class).save(uploadFile);
+						BeanContextUtil.getBean(UploadFileService.class).save(uploadFile);
 						questionnaire.getUploadFiles().add(uploadFile);
-						BeanContextUtil.getInstance().getBean(QuestionnaireService.class).save(questionnaire);
+						BeanContextUtil.getBean(QuestionnaireService.class).save(questionnaire);
 						// uploadFile.setType(type);
 					}
 				}
@@ -192,11 +192,11 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 					}
 				}
 				if (CollectionUtils.isNotEmpty(answerStats)) {
-					BeanContextUtil.getInstance().getBean(AnswerStatService.class).save(answerStats);
+					BeanContextUtil.getBean(AnswerStatService.class).save(answerStats);
 				}
 			}
 			crawlResult.setIsParse(true);
-			BeanContextUtil.getInstance().getBean(CrawlResultService.class).save(crawlResult);
+			BeanContextUtil.getBean(CrawlResultService.class).save(crawlResult);
 			try {
 				Thread.sleep(2000L);
 			} catch (InterruptedException e) {
@@ -221,7 +221,7 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 				q.setName(question.getTitle());
 				q.setNum(question.getNextid() + 1);
 				q.setQuestionnaire(questionnaire);
-				BeanContextUtil.getInstance().getBean(QuestionService.class).save(q);
+				BeanContextUtil.getBean(QuestionService.class).save(q);
 				int index = 1;
 				List<com.faceye.component.questionnaire.entity.Answer> answers = new ArrayList<com.faceye.component.questionnaire.entity.Answer>();
 				for (Answer answer : question.getDatalist()) {
@@ -233,7 +233,7 @@ public class CsjParseFilter extends BaseParseFilter implements ParseFilter {
 					answers.add(a);
 				}
 				if (CollectionUtils.isNotEmpty(answers)) {
-					BeanContextUtil.getInstance().getBean(AnswerService.class).save(answers);
+					BeanContextUtil.getBean(AnswerService.class).save(answers);
 				}
 			}
 		} else {

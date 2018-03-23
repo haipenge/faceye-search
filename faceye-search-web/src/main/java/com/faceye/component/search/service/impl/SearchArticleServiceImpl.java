@@ -28,7 +28,7 @@ import com.faceye.component.search.service.ArticleCategoryService;
 import com.faceye.component.search.service.SearchArticleService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 import com.faceye.feature.util.RandUtil;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.querydsl.core.types.Predicate;
 
 @Service
@@ -46,7 +46,7 @@ public class SearchArticleServiceImpl extends BaseMongoServiceImpl<Article, Long
 	}
 
 	@Override
-	public Page<Article> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Article> getPage(Map<String, Object> searchParams, int page, int size)   {
 		String oldKey = this.buildPageCacheKey(searchParams, page, size);
 		try {
 			this.redisService.delete(oldKey);

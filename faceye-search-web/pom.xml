@@ -27,8 +27,8 @@
 		<!-- <querydsl.version>3.6.3</querydsl.version> -->
 		<javax.persistence.version>1.0.2</javax.persistence.version>
 		<faceye-util-manager.version>1.0</faceye-util-manager.version>
-		<jdk.version>1.7</jdk.version>
-		<querydsl.version>4.1.2</querydsl.version>
+		<jdk.version>1.8</jdk.version>
+		<querydsl.version>4.2.0</querydsl.version>
 		<lucene.version>4.9.0</lucene.version>
 		<ik-analyzer.version>1.0</ik-analyzer.version>
 		<ueditor.version>1.4.3</ueditor.version>

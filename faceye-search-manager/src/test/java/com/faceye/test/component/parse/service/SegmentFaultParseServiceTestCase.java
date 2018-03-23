@@ -35,6 +35,6 @@ public class SegmentFaultParseServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|site.id", this.siteService.getSiteByName(domain).getId());
 		searchParams.put("EQ|type", 2);
 		Page<Link> page=this.linkService.getPage(searchParams, 1, 10);
-		Assert.isTrue(page!=null &&CollectionUtils.isNotEmpty(page.getContent())&&page.getContent().size()==10);
+		Assert.assertTrue(page!=null &&CollectionUtils.isNotEmpty(page.getContent())&&page.getContent().size()==10);
 	}
 }

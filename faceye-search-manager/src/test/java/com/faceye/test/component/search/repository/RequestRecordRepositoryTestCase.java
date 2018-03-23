@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.doc.RequestRecord;
 import com.faceye.component.search.repository.mongo.RequestRecordRepository;
@@ -34,24 +34,24 @@ public class RequestRecordRepositoryTestCase extends BaseRepositoryTestCase {
 		RequestRecord entity = new RequestRecord();
 		this.requestRecordRepository.save(entity);
 		Iterable<RequestRecord> entities = this.requestRecordRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		RequestRecord entity = new RequestRecord();
 		this.requestRecordRepository.save(entity);
-        this.requestRecordRepository.delete(entity.getId());
+        this.requestRecordRepository.deleteById(entity.getId());
         Iterable<RequestRecord> entities = this.requestRecordRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		RequestRecord entity = new RequestRecord();
 		this.requestRecordRepository.save(entity);
-		RequestRecord requestRecord=this.requestRecordRepository.findOne(entity.getId());
-		Assert.isTrue(requestRecord!=null);
+		RequestRecord requestRecord=this.requestRecordRepository.findById(entity.getId()).get();
+		Assert.assertTrue(requestRecord!=null);
 	}
 
 	

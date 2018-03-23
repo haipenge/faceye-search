@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.search.service.EmailService;
-import com.faceye.feature.util.ServiceException;
+ 
 /**
  * 电子邮件初始化job
  * @author @haipenge 
@@ -19,7 +19,7 @@ public class EmailInitJob extends BaseJob{
     @Autowired
     private EmailService emailService=null;
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		if(!isJobRun){
 			this.emailService.readAndImport();
 		}

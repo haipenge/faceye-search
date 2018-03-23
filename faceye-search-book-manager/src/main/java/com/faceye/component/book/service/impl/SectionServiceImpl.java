@@ -16,7 +16,7 @@ import com.faceye.component.book.repository.mongo.SectionRepository;
 import com.faceye.component.book.service.SectionService;
 import com.faceye.feature.service.SequenceService;
 import com.faceye.feature.service.impl.BaseServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 
 @Service("mSectionService")

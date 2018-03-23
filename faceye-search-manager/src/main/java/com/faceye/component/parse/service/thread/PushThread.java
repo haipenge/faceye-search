@@ -14,7 +14,7 @@ public class PushThread extends BaseThread {
 	
 	@Override
 	public void doBusiness() {
-		ParseResultService parseResultService=BeanContextUtil.getInstance().getBean(ParseResultService.class);
+		ParseResultService parseResultService=BeanContextUtil.getBean(ParseResultService.class);
 		if(null!=parseResultService){
 			logger.debug(">>Now push thread start.");
 			if(null!=parseResultIds && parseResultIds.length>0){

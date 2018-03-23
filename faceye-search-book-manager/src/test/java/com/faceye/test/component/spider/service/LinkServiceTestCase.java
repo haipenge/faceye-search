@@ -29,9 +29,9 @@ public class LinkServiceTestCase extends BaseServiceTestCase {
 		link.setType(1);
 		this.linkService.save(link);
 		boolean isExist = this.linkService.isLinkExist(url);
-		Assert.isTrue(isExist);
+		Assert.assertTrue(isExist);
 		url = "http://home.cnblogs.com/blog/page/1/ssf";
 		isExist = this.linkService.isLinkExist(url);
-		Assert.isTrue(!isExist);
+		Assert.assertTrue(!isExist);
 	}
 }

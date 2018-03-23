@@ -142,18 +142,18 @@ public class SuperParseServiceImpl extends BaseParseServiceImpl implements Parse
 //			logger.debug(">>FaceYe parse trace 2->"+document.getLinkUrl());
 			// 如果是youku 明细页
 			if (document.getLinkType() != null && document.getLinkType().intValue() == 2 && StringUtils.indexOf(document.getLinkUrl(), "youku.com") != -1) {
-				ParseFilter filter = (ParseFilter) BeanContextUtil.getInstance().getBean(MovieBodyParseFilter.class);
+				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(MovieBodyParseFilter.class);
 				filter.filter(document, crawlResult, content);
 			} else if (document.getLinkType() != null && document.getLinkType().intValue() == 2 && StringUtils.indexOf(document.getLinkUrl(), "letv.com") != -1) {
 				// 如果是乐视详情页
-				ParseFilter filter = (ParseFilter) BeanContextUtil.getInstance().getBean(LeMovieParseFilter.class);
+				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(LeMovieParseFilter.class);
 				filter.filter(document, crawlResult, content);
 			} else if (document.getLinkType() != null && document.getLinkType() == 2 && StringUtils.contains(document.getLinkUrl(), "wx.dm15.com")) {
-				ParseFilter filter = (ParseFilter) BeanContextUtil.getInstance().getBean(CsjParseFilter.class);
+				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(CsjParseFilter.class);
 				filter.filter(document, crawlResult, content);
 			} else if(document.getLinkType()!=null && document.getLinkType()==2 && StringUtils.contains(document.getLinkUrl(), "kankandou.com")){
 //				logger.debug(">>FaceYe parse trace 3->"+document.getLinkUrl());
-				ParseFilter filter=(ParseFilter) BeanContextUtil.getInstance().getBean(KankandouParseFilter.class);
+				ParseFilter filter=(ParseFilter) BeanContextUtil.getBean(KankandouParseFilter.class);
 				filter.filter(document, crawlResult, content);
 			} else {
 				if (StringUtils.isNotEmpty(document.getBody()) && StringUtils.isNotEmpty(document.getTitle())) {

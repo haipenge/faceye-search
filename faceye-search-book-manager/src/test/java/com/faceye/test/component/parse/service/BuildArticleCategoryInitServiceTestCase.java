@@ -14,6 +14,6 @@ public class BuildArticleCategoryInitServiceTestCase extends BaseServiceTestCase
 	@Test
 	public void testBuild() throws Exception {
        this.buildArticleCategoryInitService.build();
-       Assert.isTrue(1==1);
+       Assert.assertTrue(1==1);
 	}
 }

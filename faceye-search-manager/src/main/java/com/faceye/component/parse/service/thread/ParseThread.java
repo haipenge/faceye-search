@@ -18,10 +18,10 @@ public class ParseThread extends BaseThread {
 
 	public ParseThread() {
 		if (parseService == null) {
-			parseService = (ParseService) BeanContextUtil.getInstance().getBean("superParseServiceImpl");
+			parseService = (ParseService) BeanContextUtil.getBean("superParseServiceImpl");
 		}
 		if (parseQueueService == null) {
-			parseQueueService = (MultiQueueService) BeanContextUtil.getInstance().getBean("parseQueueService");
+			parseQueueService = (MultiQueueService) BeanContextUtil.getBean("parseQueueService");
 		}
 	}
 

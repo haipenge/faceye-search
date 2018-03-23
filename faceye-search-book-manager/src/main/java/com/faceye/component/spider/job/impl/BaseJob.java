@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.faceye.component.spider.job.IJob;
-import com.faceye.feature.util.ServiceException;
+ 
 
 abstract public class BaseJob implements IJob {
     
@@ -22,6 +22,6 @@ abstract public class BaseJob implements IJob {
 	 * 每一个具体任务需要实现在抽像方法
 	 * @throws BusinessException
 	 */
-	public abstract void run() throws ServiceException;
+	public abstract void run()  ;
 
 }

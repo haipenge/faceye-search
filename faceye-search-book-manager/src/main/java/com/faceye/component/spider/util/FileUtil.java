@@ -270,7 +270,7 @@ public class FileUtil {
 	 * 2015年1月20日
 	 */
 	private String getCrawlStorePath() {
-		PropertyService propertyService = BeanContextUtil.getInstance().getBean(PropertyService.class);
+		PropertyService propertyService = BeanContextUtil.getBean(PropertyService.class);
 		return propertyService.get("spider.root.crawl.path");
 	}
 
@@ -284,7 +284,7 @@ public class FileUtil {
 	 */
 	private String getImgStorePath() {
 		String url = "";
-		url = BeanContextUtil.getInstance().getBean(PropertyService.class).get("spider.root.img.path");
+		url = BeanContextUtil.getBean(PropertyService.class).get("spider.root.img.path");
 		return url;
 	}
 
@@ -297,7 +297,7 @@ public class FileUtil {
 	 * 2015年1月20日
 	 */
 	private String getSeedsPath() {
-		PropertyService propertyService = BeanContextUtil.getInstance().getBean(PropertyService.class);
+		PropertyService propertyService = BeanContextUtil.getBean(PropertyService.class);
 		return propertyService.get("spider.root.seed.path");
 	}
 }

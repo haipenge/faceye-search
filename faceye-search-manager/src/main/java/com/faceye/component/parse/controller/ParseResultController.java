@@ -378,7 +378,7 @@ public class ParseResultController extends BaseController<ParseResult, Long, Par
 			params.put("keywords", parseResult.getKeywords());
 			params.put("description", parseResult.getDescription());
 			params.put("content", parseResult.getContent());
-			Http.getInstance().post(BeanContextUtil.getInstance().getBean(PropertyService.class).get("cms.push.url"), "UTF-8", params);
+			Http.getInstance().post(BeanContextUtil.getBean(PropertyService.class).get("cms.push.url"), "UTF-8", params);
 		}
 		return AjaxResult.getInstance().buildDefaultResult(true);
 	}

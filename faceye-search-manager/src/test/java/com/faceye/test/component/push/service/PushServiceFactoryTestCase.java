@@ -20,6 +20,6 @@ public class PushServiceFactoryTestCase extends BaseServiceTestCase {
 	public void getPushService(){
 		Site site=this.siteService.get(1L);
 		PushService pushService=this.pushServiceFactory.getPushService(site);
-		Assert.isTrue(null!=pushService);
+		Assert.assertTrue(null!=pushService);
 	}
 }

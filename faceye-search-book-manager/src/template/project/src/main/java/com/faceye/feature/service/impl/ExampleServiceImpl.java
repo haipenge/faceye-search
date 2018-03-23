@@ -16,7 +16,7 @@ import com.faceye.feature.repository.DynamicSpecifications;
 import com.faceye.feature.repository.ExampleRepository;
 import com.faceye.feature.repository.SearchFilter;
 import com.faceye.feature.service.ExampleService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 @Service
 public class ExampleServiceImpl extends BaseServiceImpl<Example, Long, ExampleRepository> implements ExampleService {
@@ -29,7 +29,7 @@ public class ExampleServiceImpl extends BaseServiceImpl<Example, Long, ExampleRe
 	 * 分页查询，如果size＝0,则按条件查询全部数据
 	 */
 	@Override
-	public Page<Example> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Example> getPage(Map<String, Object> searchParams, int page, int size)   {
 		Specification<Example> specification = null;
 		Page<Example> result = null;
 		Class clazz = Example.class;

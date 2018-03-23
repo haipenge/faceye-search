@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.service.ParseResultService;
-import com.faceye.feature.util.ServiceException;
+ 
 /**
  * 文章自动发布任务
  * @author @haipenge 
@@ -16,7 +16,7 @@ public class AutoPublishJob extends BaseJob {
 	@Autowired
 	private ParseResultService parseResultService=null;
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		parseResultService.saveAuthPublish();
 	}
 

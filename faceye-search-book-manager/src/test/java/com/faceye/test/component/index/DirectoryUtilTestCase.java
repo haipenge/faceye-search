@@ -5,7 +5,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.index.util.DirectoryUtil;
 
@@ -21,6 +21,6 @@ public class DirectoryUtilTestCase {
 				logger.debug(">>Dir is:"+dir);
 			}
 		}
-		Assert.isTrue(dirs!=null&&dirs.length>0);
+		Assert.assertTrue(dirs!=null&&dirs.length>0);
 	}
 }

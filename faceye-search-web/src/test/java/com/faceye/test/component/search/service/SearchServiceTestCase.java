@@ -4,7 +4,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.service.SearchService;
 import com.faceye.component.search.service.impl.SearchResult;
@@ -20,7 +20,7 @@ public class SearchServiceTestCase extends BaseServiceTestCase {
 		String key = "sPring,Springframework";
         Page<SearchResult> searchResults=this.searchService.search(key, 1, 20);
         this.print(searchResults);
-        Assert.isTrue(CollectionUtils.isNotEmpty(searchResults.getContent()));
+        Assert.assertTrue(CollectionUtils.isNotEmpty(searchResults.getContent()));
 	}
 	
 	private void print(Page<SearchResult> searchResults){

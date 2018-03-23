@@ -30,14 +30,14 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 //		Long id=1L;
 //		Article article=this.searchArticleService.get(id);
 //		logger.debug("name is:"+article.getName());
-//		Assert.isTrue(article!=null);
+//		Assert.assertTrue(article!=null);
 	}
 	@Test
 	public void testRemove() throws Exception{
 //		Long id=1L;
 //		this.searchArticleService.remove(id);
 //		Article article=this.searchArticleService.get(id);
-//		Assert.isTrue(null==article);
+//		Assert.assertTrue(null==article);
 	}
 	 
 	@Test
@@ -45,7 +45,7 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 //		Article article =this.searchArticleService.get(1L);
 //		article.setName("update-name-now");
 //		this.searchArticleService.save(article);
-//		Assert.isTrue(article!=null);
+//		Assert.assertTrue(article!=null);
 	}
 	
 	@Test
@@ -58,11 +58,11 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 //			this.searchArticleService.save(article);
 //		}
 //		Page<Article> page=this.searchArticleService.getPage(null, 1, 5);
-//		Assert.isTrue(page!=null && page.getContent().size()==5);
+//		Assert.assertTrue(page!=null && page.getContent().size()==5);
 		Map searchParams=new HashMap();
 		searchParams.put("isIndexed", Boolean.TRUE);
 		Page<Article> articles=this.searchArticleService.getPage(searchParams, 1, 10);
-		Assert.isTrue(articles!=null && CollectionUtils.isNotEmpty(articles.getContent())&&articles.getContent().size()==1);
+		Assert.assertTrue(articles!=null && CollectionUtils.isNotEmpty(articles.getContent())&&articles.getContent().size()==1);
 	}
 	@Test
 	public void testDedup() throws Exception{

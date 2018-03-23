@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.doc.Email;
 import com.faceye.component.search.repository.mongo.EmailRepository;
@@ -34,24 +34,24 @@ public class EmailRepositoryTestCase extends BaseRepositoryTestCase {
 		Email entity = new Email();
 		this.emailRepository.save(entity);
 		Iterable<Email> entities = this.emailRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Email entity = new Email();
 		this.emailRepository.save(entity);
-        this.emailRepository.delete(entity.getId());
+        this.emailRepository.deleteById(entity.getId());
         Iterable<Email> entities = this.emailRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Email entity = new Email();
 		this.emailRepository.save(entity);
-		Email email=this.emailRepository.findOne(entity.getId());
-		Assert.isTrue(email!=null);
+		Email email=this.emailRepository.findById(entity.getId()).get();
+		Assert.assertTrue(email!=null);
 	}
 
 	

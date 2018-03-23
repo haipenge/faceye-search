@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.doc.FilterWord;
 import com.faceye.component.parse.repository.mongo.FilterWordRepository;
@@ -34,24 +34,24 @@ public class FilterWordRepositoryTestCase extends BaseRepositoryTestCase {
 		FilterWord entity = new FilterWord();
 		this.filterWordRepository.save(entity);
 		Iterable<FilterWord> entities = this.filterWordRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		FilterWord entity = new FilterWord();
 		this.filterWordRepository.save(entity);
-        this.filterWordRepository.delete(entity.getId());
+        this.filterWordRepository.deleteById(entity.getId());
         Iterable<FilterWord> entities = this.filterWordRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		FilterWord entity = new FilterWord();
 		this.filterWordRepository.save(entity);
-		FilterWord filterWord=this.filterWordRepository.findOne(entity.getId());
-		Assert.isTrue(filterWord!=null);
+		FilterWord filterWord=this.filterWordRepository.findById(entity.getId()).get();
+		Assert.assertTrue(filterWord!=null);
 	}
 
 	

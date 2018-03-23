@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.push.doc.PushRecord;
 import com.faceye.component.push.repository.mongo.PushRecordRepository;
@@ -34,24 +34,24 @@ public class PushRecordRepositoryTestCase extends BaseRepositoryTestCase {
 		PushRecord entity = new PushRecord();
 		this.pushRecordRepository.save(entity);
 		Iterable<PushRecord> entities = this.pushRecordRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		PushRecord entity = new PushRecord();
 		this.pushRecordRepository.save(entity);
-        this.pushRecordRepository.delete(entity.getId());
+        this.pushRecordRepository.deleteById(entity.getId());
         Iterable<PushRecord> entities = this.pushRecordRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		PushRecord entity = new PushRecord();
 		this.pushRecordRepository.save(entity);
-		PushRecord pushRecord=this.pushRecordRepository.findOne(entity.getId());
-		Assert.isTrue(pushRecord!=null);
+		PushRecord pushRecord=this.pushRecordRepository.findById(entity.getId()).get();
+		Assert.assertTrue(pushRecord!=null);
 	}
 
 	

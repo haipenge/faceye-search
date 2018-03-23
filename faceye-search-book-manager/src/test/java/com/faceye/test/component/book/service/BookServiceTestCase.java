@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.book.doc.Book;
 import com.faceye.component.book.service.BookService;
@@ -36,7 +36,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(bookService != null);
+		Assert.assertTrue(bookService != null);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		Book entity = new Book();
 		this.bookService.save(entity);
 		List<Book> entites = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		Book entity = new Book();
 		this.bookService.save(entity);
 		List<Book> entites = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 			this.bookService.save(entity);
 		}
 		List<Book> entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		this.bookService.save(entity);
 		logger.debug(">>Entity id is:" + entity.getId());
 		Book e = this.bookService.get(entity.getId());
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		this.bookService.save(entity);
 		this.bookService.remove(entity);
 		List<Book> entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -111,10 +111,10 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 			this.bookService.save(entity);
 		}
 		List<Book> entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 		this.bookService.removeAllInBatch();
 		entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		}
 		this.bookService.removeAll();
 		List<Book> entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -139,7 +139,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		}
 		this.bookService.removeInBatch(entities);
 		entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -149,7 +149,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 			this.bookService.save(entity);
 		}
 		List<Book> entities = this.bookService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -160,15 +160,15 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<Book> page = this.bookService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ_name", "test-10");
 		page = this.bookService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE_name", "test");
 		page = this.bookService.getPage(searchParams, 1, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -181,7 +181,7 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		Book e = this.bookService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -195,6 +195,6 @@ public class BookServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<Book> entities = this.bookService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 }

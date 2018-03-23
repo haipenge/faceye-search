@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.faceye.component.spider.service.CrawlService;
 import com.faceye.component.spider.service.SiteLinkService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 网页爬取JOB
@@ -20,7 +20,7 @@ public class CrawlJob extends BaseJob {
 	private CrawlService crawlService = null;
 
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		if (!isJobRun) {
 			try {
 				isJobRun=Boolean.TRUE;

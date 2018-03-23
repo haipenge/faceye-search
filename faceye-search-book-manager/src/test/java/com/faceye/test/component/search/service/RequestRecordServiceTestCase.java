@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.doc.RequestRecord;
 import com.faceye.component.search.service.RequestRecordService;
@@ -36,7 +36,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(requestRecordService != null);
+		Assert.assertTrue(requestRecordService != null);
 	}
 
 	/**
@@ -65,7 +65,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		RequestRecord entity = new RequestRecord();
 		this.requestRecordService.save(entity);
 		List<RequestRecord> entites = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -73,7 +73,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		RequestRecord entity = new RequestRecord();
 		this.requestRecordService.save(entity);
 		List<RequestRecord> entites = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -83,7 +83,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 			this.requestRecordService.save(entity);
 		}
 		List<RequestRecord> entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -92,7 +92,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		this.requestRecordService.save(entity);
 		logger.debug(">>Entity id is:" + entity.getId());
 		RequestRecord e = this.requestRecordService.get(entity.getId());
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -101,7 +101,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		this.requestRecordService.save(entity);
 		this.requestRecordService.remove(entity);
 		List<RequestRecord> entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -111,10 +111,10 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 			this.requestRecordService.save(entity);
 		}
 		List<RequestRecord> entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 		this.requestRecordService.removeAllInBatch();
 		entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -125,7 +125,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		}
 		this.requestRecordService.removeAll();
 		List<RequestRecord> entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -139,7 +139,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		}
 		this.requestRecordService.removeInBatch(entities);
 		entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -149,7 +149,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 			this.requestRecordService.save(entity);
 		}
 		List<RequestRecord> entities = this.requestRecordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -160,15 +160,15 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<RequestRecord> page = this.requestRecordService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ|name", "test-10");
 		page = this.requestRecordService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE|name", "test");
 		page = this.requestRecordService.getPage(searchParams, 1, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -181,7 +181,7 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		RequestRecord e = this.requestRecordService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -195,6 +195,6 @@ public class RequestRecordServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<RequestRecord> entities = this.requestRecordService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 }

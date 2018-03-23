@@ -37,6 +37,6 @@ public class W3SchoolParseServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|site.id", site.getId());
 		searchParams.put("EQ|type", new Integer(2));
 		Page links=this.linkService.getPage(searchParams, 1, 0);
-		Assert.isTrue(null!=links &&CollectionUtils.isNotEmpty(links.getContent())&&links.getContent().size()>0);
+		Assert.assertTrue(null!=links &&CollectionUtils.isNotEmpty(links.getContent())&&links.getContent().size()>0);
 	}
 }

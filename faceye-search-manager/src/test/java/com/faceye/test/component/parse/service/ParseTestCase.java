@@ -25,9 +25,9 @@ public class ParseTestCase extends BaseServiceTestCase {
 		Class [] clazzs=new Class[]{SuperLinkParseFilter.class,SuperBodyParseFilter.class};
 		CrawlResult crawlResult=this.crawlResultService.get(211608L);
 		Document document=this.parse.parse(crawlResult, clazzs);
-//		Assert.isTrue(CollectionUtils.isNotEmpty(document.getLinks()));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(document.getLinks()));
 //		crawlResult=this.crawlResultService.get(211608L);
 //		document=this.parse.parse(crawlResult, clazzs);
-		Assert.isTrue(StringUtils.isNotEmpty(document.getBody())&&StringUtils.isNotEmpty(document.getTitle()));
+		Assert.assertTrue(StringUtils.isNotEmpty(document.getBody())&&StringUtils.isNotEmpty(document.getTitle()));
 	}
 }

@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.doc.MatcherConfig;
 import com.faceye.component.spider.repository.mongo.MatcherConfigRepository;
@@ -34,24 +34,24 @@ public class MatcherConfigRepositoryTestCase extends BaseRepositoryTestCase {
 		MatcherConfig entity = new MatcherConfig();
 		this.matcherConfigRepository.save(entity);
 		Iterable<MatcherConfig> entities = this.matcherConfigRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		MatcherConfig entity = new MatcherConfig();
 		this.matcherConfigRepository.save(entity);
-        this.matcherConfigRepository.delete(entity.getId());
+        this.matcherConfigRepository.deleteById(entity.getId());
         Iterable<MatcherConfig> entities = this.matcherConfigRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		MatcherConfig entity = new MatcherConfig();
 		this.matcherConfigRepository.save(entity);
-		MatcherConfig matcherConfig=this.matcherConfigRepository.findOne(entity.getId());
-		Assert.isTrue(matcherConfig!=null);
+		MatcherConfig matcherConfig=this.matcherConfigRepository.findById(entity.getId()).get();
+		Assert.assertTrue(matcherConfig!=null);
 	}
 
 	

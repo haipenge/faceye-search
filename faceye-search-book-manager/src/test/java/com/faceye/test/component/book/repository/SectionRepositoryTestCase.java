@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.book.doc.Section;
 import com.faceye.component.book.repository.mongo.SectionRepository;
@@ -34,24 +34,24 @@ public class SectionRepositoryTestCase extends BaseRepositoryTestCase {
 		Section entity = new Section();
 		this.sectionRepository.save(entity);
 		Iterable<Section> entities = this.sectionRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Section entity = new Section();
 		this.sectionRepository.save(entity);
-        this.sectionRepository.delete(entity.getId());
+        this.sectionRepository.deleteById(entity.getId());
         Iterable<Section> entities = this.sectionRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Section entity = new Section();
 		this.sectionRepository.save(entity);
-		Section section=this.sectionRepository.findOne(entity.getId());
-		Assert.isTrue(section!=null);
+		Section section=this.sectionRepository.findById(entity.getId()).get();
+		Assert.assertTrue(section!=null);
 	}
 
 	

@@ -17,7 +17,7 @@ public class CsdnPushServiceTestCase extends BaseServiceTestCase {
 	@Test
 	public void testDoLogin() throws Exception {
       boolean isLoginSuccess=this.csdnPushService.doLogin();
-      Assert.isTrue(isLoginSuccess);
+      Assert.assertTrue(isLoginSuccess);
 	}
 	@Test
 	public void testPush() throws Exception{

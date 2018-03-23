@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.index.doc.AnalyzerWord;
 import com.faceye.component.index.repository.mongo.AnalyzerWordRepository;
@@ -34,24 +34,24 @@ public class AnalyzerWordRepositoryTestCase extends BaseRepositoryTestCase {
 		AnalyzerWord entity = new AnalyzerWord();
 		this.analyzerWordRepository.save(entity);
 		Iterable<AnalyzerWord> entities = this.analyzerWordRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		AnalyzerWord entity = new AnalyzerWord();
 		this.analyzerWordRepository.save(entity);
-        this.analyzerWordRepository.delete(entity.getId());
+        this.analyzerWordRepository.deleteById(entity.getId());
         Iterable<AnalyzerWord> entities = this.analyzerWordRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		AnalyzerWord entity = new AnalyzerWord();
 		this.analyzerWordRepository.save(entity);
-		AnalyzerWord analyzerWord=this.analyzerWordRepository.findOne(entity.getId());
-		Assert.isTrue(analyzerWord!=null);
+		AnalyzerWord analyzerWord=this.analyzerWordRepository.findById(entity.getId()).get();
+		Assert.assertTrue(analyzerWord!=null);
 	}
 
 	

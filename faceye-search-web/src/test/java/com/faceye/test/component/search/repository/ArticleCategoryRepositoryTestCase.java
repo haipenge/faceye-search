@@ -17,6 +17,6 @@ public class ArticleCategoryRepositoryTestCase extends BaseRepositoryTestCase {
 	@Test
 	public void testGetAll() throws Exception{
 		List<ArticleCategory> categories=this.articleCategoryRepository.findAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(categories));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(categories));
 	}
 }

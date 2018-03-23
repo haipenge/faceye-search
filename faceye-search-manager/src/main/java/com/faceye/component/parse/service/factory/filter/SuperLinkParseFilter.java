@@ -120,7 +120,7 @@ public class SuperLinkParseFilter extends BaseParseFilter implements ParseFilter
 						String parentUrl=crawlResult.getLinkUrl();
 						if (StringUtils.contains(parentUrl, "wx.dm15.com")) {
 //                              String parentUrl=document.getLinkUrl();
-							Link link=BeanContextUtil.getInstance().getBean(LinkService.class).get(crawlResult.getLinkId());
+							Link link=BeanContextUtil.getBean(LinkService.class).get(crawlResult.getLinkId());
 							LinkBuilder.getInstance().build(links, url, type, link.getDistributeChannel());
 						} else {
 							LinkBuilder.getInstance().build(links, url, type, selectMatcherConfig.getIsWeixin());

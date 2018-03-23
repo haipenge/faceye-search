@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.index.service.IndexService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 创建索引任务
@@ -17,7 +17,7 @@ public class IndexWriterJob extends BaseJob {
 	@Autowired
     private IndexService indexService=null;
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		logger.debug(">>FaceYe --> do index builder job now.");
 		indexService.buildIndex();
 		logger.debug(">>FaceYe --> Finish index builder job.");

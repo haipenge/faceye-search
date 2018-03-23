@@ -16,7 +16,7 @@ import com.faceye.component.spider.doc.MatcherConfig;
 import com.faceye.component.spider.repository.mongo.MatcherConfigRepository;
 import com.faceye.component.spider.service.MatcherConfigService;
 import com.faceye.feature.service.impl.BaseServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 
 @Service

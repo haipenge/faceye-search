@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.feature.entity.Example;
 import com.faceye.feature.repository.ExampleRepository;
@@ -35,7 +35,7 @@ public class ExampleRepositoryTestCase extends BaseRepositoryTestCase {
 		entity.setName("test-entity");
 		this.exampleRepository.save(entity);
 		Iterable<Example> entities = this.exampleRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
@@ -43,9 +43,9 @@ public class ExampleRepositoryTestCase extends BaseRepositoryTestCase {
 		Example entity = new Example();
 		entity.setName("test-entity");
 		this.exampleRepository.save(entity);
-        this.exampleRepository.delete(entity.getId());
+        this.exampleRepository.deleteById(entity.getId());
         Iterable<Example> entities = this.exampleRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
@@ -53,8 +53,8 @@ public class ExampleRepositoryTestCase extends BaseRepositoryTestCase {
 		Example entity = new Example();
 		entity.setName("test-entity");
 		this.exampleRepository.save(entity);
-		Example example=this.exampleRepository.findOne(entity.getId());
-		Assert.isTrue(example!=null);
+		Example example=this.exampleRepository.findById(entity.getId()).get();
+		Assert.assertTrue(example!=null);
 	}
 
 	@Test
@@ -66,15 +66,15 @@ public class ExampleRepositoryTestCase extends BaseRepositoryTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<Example> page = this.exampleRepository.getPage(searchParams, 0, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ_name", "test-10");
 		page = this.exampleRepository.getPage(searchParams, 0, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE_name", "test");
 		page = this.exampleRepository.getPage(searchParams, 0, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 	

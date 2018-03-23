@@ -24,7 +24,7 @@ import com.faceye.component.search.repository.mongo.EmailRepository;
 import com.faceye.component.search.service.EmailService;
 import com.faceye.component.search.service.SearchArticleService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.util.regexp.RegexpUtil;
 
 @Service

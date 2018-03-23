@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.parse.service.FilterWordService;
 import com.faceye.test.feature.service.BaseServiceTestCase;
@@ -28,7 +28,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(filterWordService != null);
+		Assert.assertTrue(filterWordService != null);
 	}
 
 	/**
@@ -57,7 +57,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		FilterWord entity = new FilterWord();
 //		this.filterWordService.save(entity);
 //		List<FilterWord> entites = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 //	}
 //
 //	@Test
@@ -65,7 +65,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		FilterWord entity = new FilterWord();
 //		this.filterWordService.save(entity);
 //		List<FilterWord> entites = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 //	}
 //
 //	@Test
@@ -75,7 +75,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //			this.filterWordService.save(entity);
 //		}
 //		List<FilterWord> entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //	}
 //
 //	@Test
@@ -84,7 +84,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		this.filterWordService.save(entity);
 //		logger.debug(">>Entity id is:" + entity.getId());
 //		FilterWord e = this.filterWordService.get(entity.getId());
-//		Assert.isTrue(e != null);
+//		Assert.assertTrue(e != null);
 //	}
 //
 //	@Test
@@ -93,7 +93,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		this.filterWordService.save(entity);
 //		this.filterWordService.remove(entity);
 //		List<FilterWord> entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -103,10 +103,10 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //			this.filterWordService.save(entity);
 //		}
 //		List<FilterWord> entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //		this.filterWordService.removeAllInBatch();
 //		entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -117,7 +117,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.filterWordService.removeAll();
 //		List<FilterWord> entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -131,7 +131,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.filterWordService.removeInBatch(entities);
 //		entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -141,7 +141,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //			this.filterWordService.save(entity);
 //		}
 //		List<FilterWord> entities = this.filterWordService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //	}
 //
 //	@Test
@@ -152,15 +152,15 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //		}
 //		Map<String, Object> searchParams = new HashMap<String, Object>();
 //		Page<FilterWord> page = this.filterWordService.getPage(searchParams, 1, 5);
-//		Assert.isTrue(page != null && page.getSize() == 5);
+//		Assert.assertTrue(page != null && page.getSize() == 5);
 //		searchParams.put("EQ_name", "test-10");
 //		page = this.filterWordService.getPage(searchParams, 1, 5);
-//		Assert.isTrue(page != null && page.getTotalElements() == 1);
+//		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 //		searchParams = new HashMap<String, Object>();
 //		searchParams.put("LIKE_name", "test");
 //		page = this.filterWordService.getPage(searchParams, 1, 5);
 //
-//		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+//		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 //
 //	}
 //
@@ -173,7 +173,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //			id = entity.getId();
 //		}
 //		FilterWord e = this.filterWordService.get(id);
-//		Assert.isTrue(e != null);
+//		Assert.assertTrue(e != null);
 //	}
 
 //	@Test
@@ -187,7 +187,7 @@ public class FilterWordServiceTestCase extends BaseServiceTestCase {
 //			}
 //		}
 //		List<FilterWord> entities = this.filterWordService.getAll(ids);
-//		Assert.isTrue(entities != null && entities.size() == 5);
+//		Assert.assertTrue(entities != null && entities.size() == 5);
 //	}
 	@Test
 	public void testInit() throws Exception{

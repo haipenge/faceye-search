@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.entity.Category;
 import com.faceye.feature.repository.SearchFilter;
@@ -37,7 +37,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(categoryService != null);
+		Assert.assertTrue(categoryService != null);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		Category entity = new Category();
 		this.categoryService.save(entity);
 		List<Category> entites = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		Category entity = new Category();
 		this.categoryService.save(entity);
 		List<Category> entites = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -84,7 +84,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 			this.categoryService.save(entity);
 		}
 		List<Category> entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -93,7 +93,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		this.categoryService.save(entity);
 		logger.debug(">>Entity id is:" + entity.getId());
 		Category e = this.categoryService.get(entity.getId());
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -102,7 +102,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		this.categoryService.save(entity);
 		this.categoryService.remove(entity);
 		List<Category> entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -112,10 +112,10 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 			this.categoryService.save(entity);
 		}
 		List<Category> entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 		this.categoryService.removeAllInBatch();
 		entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -126,7 +126,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		}
 		this.categoryService.removeAll();
 		List<Category> entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -140,7 +140,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		}
 		this.categoryService.removeInBatch(entities);
 		entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -150,7 +150,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 			this.categoryService.save(entity);
 		}
 		List<Category> entities = this.categoryService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -161,15 +161,15 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<Category> page = this.categoryService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ_name", "test-10");
 		page = this.categoryService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE_name", "test");
 		page = this.categoryService.getPage(searchParams, 1, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -182,7 +182,7 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		Category e = this.categoryService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -196,6 +196,6 @@ public class CategoryServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<Category> entities = this.categoryService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 }

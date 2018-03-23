@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.service.ParseResultService;
 import com.faceye.component.parse.service.ParseService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 解析JOB
@@ -53,7 +53,7 @@ public class ParseJob extends BaseJob {
 	Boolean isJobRun = Boolean.FALSE;
 
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		// 解析cnblogs页面
 		logger.error(">>>>>Parse Job Start ..is job run :"+isJobRun);
 		try {

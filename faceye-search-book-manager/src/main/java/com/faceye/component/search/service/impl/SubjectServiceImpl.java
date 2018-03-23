@@ -15,7 +15,7 @@ import com.faceye.component.search.doc.Subject;
 import com.faceye.component.search.repository.mongo.SubjectRepository;
 import com.faceye.component.search.service.SubjectService;
 import com.faceye.feature.service.impl.BaseServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 
 @Service

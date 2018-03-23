@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.doc.Movie;
 import com.faceye.component.search.repository.mongo.MovieRepository;
@@ -34,24 +34,24 @@ public class MovieRepositoryTestCase extends BaseRepositoryTestCase {
 		Movie entity = new Movie();
 		this.movieRepository.save(entity);
 		Iterable<Movie> entities = this.movieRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		Movie entity = new Movie();
 		this.movieRepository.save(entity);
-        this.movieRepository.delete(entity.getId());
+        this.movieRepository.deleteById(entity.getId());
         Iterable<Movie> entities = this.movieRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		Movie entity = new Movie();
 		this.movieRepository.save(entity);
-		Movie movie=this.movieRepository.findOne(entity.getId());
-		Assert.isTrue(movie!=null);
+		Movie movie=this.movieRepository.findById(entity.getId()).get();
+		Assert.assertTrue(movie!=null);
 	}
 
 	

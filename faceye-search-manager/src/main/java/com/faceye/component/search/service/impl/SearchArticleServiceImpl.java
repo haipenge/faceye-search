@@ -31,7 +31,7 @@ import com.faceye.component.weixin.doc.Weixin;
 import com.faceye.component.weixin.service.WeixinService;
 import com.faceye.feature.service.PropertyService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.faceye.feature.util.regexp.RegexpUtil;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
@@ -56,7 +56,7 @@ public class SearchArticleServiceImpl extends BaseMongoServiceImpl<Article, Long
 	}
 
 	@Override
-	public Page<Article> getPage(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Article> getPage(Map<String, Object> searchParams, int page, int size)   {
 		if (page != 0) {
 			page = page - 1;
 		}

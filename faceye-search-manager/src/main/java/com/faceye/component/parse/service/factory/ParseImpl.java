@@ -26,7 +26,7 @@ public class ParseImpl implements Parse {
 					String storePath = crawlResult.getStorePath();
 					String content = "";
 					content = FileUtil.getInstance().read(storePath);
-					ParseFilter filter = (ParseFilter)BeanContextUtil.getInstance().getBean(clazz);
+					ParseFilter filter = (ParseFilter)BeanContextUtil.getBean(clazz);
 					filter.filter(document, crawlResult, content);
 					document.setLinkType(crawlResult.getLinkType());
 					document.setLinkUrl(crawlResult.getLinkUrl());

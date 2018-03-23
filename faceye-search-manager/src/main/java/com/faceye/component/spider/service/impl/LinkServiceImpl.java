@@ -29,7 +29,7 @@ import com.faceye.feature.repository.mongo.DynamicSpecifications;
 import com.faceye.feature.service.SequenceService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
 import com.faceye.feature.util.MD5Utils;
-import com.faceye.feature.util.ServiceException;
+ 
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 
@@ -163,7 +163,7 @@ public class LinkServiceImpl extends BaseMongoServiceImpl<Link, Long, LinkReposi
 		this.dao.save(link);
 	}
 
-	public Page<Link> getPage_(Map<String, Object> searchParams, int page, int size) throws ServiceException {
+	public Page<Link> getPage_(Map<String, Object> searchParams, int page, int size)   {
 		if (page != 0) {
 			page = page - 1;
 		}

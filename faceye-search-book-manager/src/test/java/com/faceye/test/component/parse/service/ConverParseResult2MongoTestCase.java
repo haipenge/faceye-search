@@ -25,7 +25,7 @@ public class ConverParseResult2MongoTestCase extends BaseServiceTestCase {
 	public void testConver() throws Exception{
 		parseResultMySQL2MongoService.conver();
         Page<ParseResult> parseResults=this.parseResultService.getPage(null, 1, 10);
-        Assert.isTrue(parseResults!=null &&CollectionUtils.isNotEmpty(parseResults.getContent()));
+        Assert.assertTrue(parseResults!=null &&CollectionUtils.isNotEmpty(parseResults.getContent()));
         
 	}
 }

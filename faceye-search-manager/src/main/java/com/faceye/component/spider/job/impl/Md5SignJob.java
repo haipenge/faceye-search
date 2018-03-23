@@ -14,7 +14,7 @@ import com.faceye.component.parse.service.ParseResultService;
 import com.faceye.component.spider.doc.Link;
 import com.faceye.component.spider.service.LinkService;
 import com.faceye.feature.util.MD5Utils;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 对Link[url]和parse result [name]进行签名，减少存储空间，提高排重速度
@@ -31,7 +31,7 @@ public class Md5SignJob extends BaseJob {
 	private ParseResultService parseResultService = null;
 
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 //		this.linkSign();
 		this.parseResultSign();
 	}

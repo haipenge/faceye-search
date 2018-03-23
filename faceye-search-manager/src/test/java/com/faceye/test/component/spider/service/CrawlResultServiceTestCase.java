@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.doc.CrawlResult;
 import com.faceye.component.spider.service.CrawlResultService;
@@ -36,7 +36,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(crawlResultService != null);
+		Assert.assertTrue(crawlResultService != null);
 	}
 
 	/**
@@ -66,7 +66,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		entity.setLinkUrl("http://sohu.com");
 		this.crawlResultService.save(entity);
 		List<CrawlResult> entites = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		CrawlResult entity = new CrawlResult();
 		this.crawlResultService.save(entity);
 		List<CrawlResult> entites = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -85,7 +85,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 			this.crawlResultService.save(entity);
 		}
 		List<CrawlResult> entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -94,7 +94,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		this.crawlResultService.save(entity);
 		logger.debug(">>Entity id is:" + entity.getId());
 		CrawlResult e = this.crawlResultService.get(entity.getId());
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -103,7 +103,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		this.crawlResultService.save(entity);
 		this.crawlResultService.remove(entity);
 		List<CrawlResult> entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -113,10 +113,10 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 			this.crawlResultService.save(entity);
 		}
 		List<CrawlResult> entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 		this.crawlResultService.removeAllInBatch();
 		entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -127,7 +127,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		}
 		this.crawlResultService.removeAll();
 		List<CrawlResult> entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -141,7 +141,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		}
 		this.crawlResultService.removeInBatch(entities);
 		entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -151,7 +151,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 			this.crawlResultService.save(entity);
 		}
 		List<CrawlResult> entities = this.crawlResultService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -160,26 +160,26 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|siteId", "15");
 		searchParams.put("ISFALSE|isParse", "0");
 		Page<CrawlResult> page = this.crawlResultService.getPage(searchParams, 1, 25);
-        Assert.isTrue(page.getContent().size()==25);		
+        Assert.assertTrue(page.getContent().size()==25);		
         for(CrawlResult crawlResult:page.getContent()){
-        	Assert.isTrue(crawlResult.getSiteId().toString().equals("15") && !crawlResult.getIsParse());
+        	Assert.assertTrue(crawlResult.getSiteId().toString().equals("15") && !crawlResult.getIsParse());
         }
         searchParams = new HashMap<String, Object>();
         searchParams.put("EQ|siteId", 15);
 		searchParams.put("ISTRUE|isParse", "0");
 		 page = this.crawlResultService.getPage(searchParams, 1, 25);
-        Assert.isTrue(page.getContent().size()==25);		
+        Assert.assertTrue(page.getContent().size()==25);		
         for(CrawlResult crawlResult:page.getContent()){
-        	Assert.isTrue(crawlResult.getSiteId().toString().equals("15") && crawlResult.getIsParse());
+        	Assert.assertTrue(crawlResult.getSiteId().toString().equals("15") && crawlResult.getIsParse());
         }
         searchParams = new HashMap<String, Object>();
         searchParams.put("EQ|siteId", 1);
         searchParams.put("EQ|linkType", 1);
 		searchParams.put("ISFALSE|isParse", "0");
 		 page = this.crawlResultService.getPage(searchParams, 1, 5);
-        Assert.isTrue(page.getContent().size()==5);		
+        Assert.assertTrue(page.getContent().size()==5);		
         for(CrawlResult crawlResult:page.getContent()){
-        	Assert.isTrue(crawlResult.getSiteId().toString().equals("1") && !crawlResult.getIsParse());
+        	Assert.assertTrue(crawlResult.getSiteId().toString().equals("1") && !crawlResult.getIsParse());
         }
 
 	}
@@ -193,7 +193,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		CrawlResult e = this.crawlResultService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -207,7 +207,7 @@ public class CrawlResultServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<CrawlResult> entities = this.crawlResultService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 	
 	

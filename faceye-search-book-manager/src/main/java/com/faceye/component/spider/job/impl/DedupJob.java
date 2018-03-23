@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.service.ParseResultService;
 import com.faceye.component.search.service.SearchArticleService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 去重Job
@@ -20,7 +20,7 @@ public class DedupJob extends BaseJob {
 	@Autowired
 	private SearchArticleService searchArticleService=null;
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		logger.debug(">>Start Dudup Job now");
 //		this.parseResultService.dedup();
 		this.searchArticleService.dedup();

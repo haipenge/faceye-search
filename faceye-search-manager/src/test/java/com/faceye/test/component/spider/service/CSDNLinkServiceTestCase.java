@@ -37,12 +37,12 @@ public class CSDNLinkServiceTestCase extends BaseServiceTestCase {
 	public void testSaveInitLinks() throws Exception {
 		this.csdnLinkService.saveInitLinks();
 		Site site = this.csdnLinkService.getSite();
-		Assert.isTrue(null != site);
+		Assert.assertTrue(null != site);
 		Map searchParams = new HashMap();
 		searchParams.put("EQ|site.id", site.getId());
 		searchParams.put("EQ|type", new Integer(1));
 		Page<Link> links = this.linkService.getPage(searchParams, 1, 100);
-		Assert.isTrue(null != links && CollectionUtils.isNotEmpty(links.getContent()));
+		Assert.assertTrue(null != links && CollectionUtils.isNotEmpty(links.getContent()));
 
 	}
 }

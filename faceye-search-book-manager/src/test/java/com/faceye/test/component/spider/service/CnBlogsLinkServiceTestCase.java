@@ -12,7 +12,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.spider.doc.Link;
 import com.faceye.component.spider.service.LinkService;
@@ -42,7 +42,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(linkService != null);
+		Assert.assertTrue(linkService != null);
 	}
 
 //	/**
@@ -71,7 +71,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		Link entity = new Link();
 //		this.linkService.save(entity);
 //		List<Link> entites = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 //	}
 //
 //	@Test
@@ -79,7 +79,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		Link entity = new Link();
 //		this.linkService.save(entity);
 //		List<Link> entites = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 //	}
 //
 //	@Test
@@ -89,7 +89,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //			this.linkService.save(entity);
 //		}
 //		List<Link> entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //	}
 //
 //	@Test
@@ -98,7 +98,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		this.linkService.save(entity);
 //		logger.debug(">>Entity id is:" + entity.getId());
 //		Link e = this.linkService.get(entity.getId());
-//		Assert.isTrue(e != null);
+//		Assert.assertTrue(e != null);
 //	}
 //
 //	@Test
@@ -107,7 +107,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		this.linkService.save(entity);
 //		this.linkService.remove(entity);
 //		List<Link> entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -117,10 +117,10 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //			this.linkService.save(entity);
 //		}
 //		List<Link> entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+//		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 //		this.linkService.removeAllInBatch();
 //		entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -131,7 +131,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.linkService.removeAll();
 //		List<Link> entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 //
 //	@Test
@@ -145,7 +145,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 //		}
 //		this.linkService.removeInBatch(entities);
 //		entities = this.linkService.getAll();
-//		Assert.isTrue(CollectionUtils.isEmpty(entities));
+//		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 //	}
 
 	@Test
@@ -155,7 +155,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 			this.linkService.save(entity);
 		}
 		List<Link> entities = this.linkService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -166,15 +166,15 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<Link> page = this.linkService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ_name", "test-10");
 		page = this.linkService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE_name", "test");
 		page = this.linkService.getPage(searchParams, 1, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -187,7 +187,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		Link e = this.linkService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -201,7 +201,7 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<Link> entities = this.linkService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 	/**
 	 * 测试初始化cnblogs链接
@@ -224,9 +224,9 @@ public class CnBlogsLinkServiceTestCase extends BaseServiceTestCase {
 	public void testIsLinkExist() throws Exception{
 		String url="http://www.baidu.com";
 		Boolean isExist=this.linkService.isLinkExist(url);
-		Assert.isTrue(isExist);
+		Assert.assertTrue(isExist);
 		url="http://www.cnblogs.com/Jialiang/p/3771671.html";
 		isExist=this.linkService.isLinkExist(url);
-		Assert.isTrue(!isExist);
+		Assert.assertTrue(!isExist);
 	}
 }

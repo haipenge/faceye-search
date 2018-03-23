@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.spider.service.SiteLinkService;
-import com.faceye.feature.util.ServiceException;
+ 
 
 /**
  * 种子资源初始化job
@@ -48,7 +48,7 @@ public class InitSeedJob extends BaseJob {
 	@Qualifier("ctoLinkService")
 	private SiteLinkService ctoLinkService=null;
 	@Override
-	public void run() throws ServiceException {
+	public void run()   {
 		this.segmentFaultLinkService.saveInitLinks();
 		this.segmentFaultLinkService.reInitLinks();
 		// 初始化cnblogs链接资源

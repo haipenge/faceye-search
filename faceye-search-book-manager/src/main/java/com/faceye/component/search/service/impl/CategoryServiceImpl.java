@@ -20,7 +20,7 @@ import com.faceye.feature.repository.SearchFilter;
 import com.faceye.feature.repository.jpa.DynamicSpecifications;
 import com.faceye.component.search.service.CategoryService;
 import com.faceye.feature.service.impl.BaseServiceImpl;
-import com.faceye.feature.util.ServiceException;
+ 
 
 @Service
 @Transactional

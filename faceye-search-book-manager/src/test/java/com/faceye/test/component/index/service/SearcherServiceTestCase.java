@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.index.service.impl.WordContainer;
 import com.faceye.component.parse.doc.ParseResult;
@@ -30,7 +30,7 @@ public class SearcherServiceTestCase extends BaseServiceTestCase {
 			logger.debug(">>Content is:\n"+searchResult.getContents().get(0));
 			logger.debug("----------------------------------");
 		}
-		Assert.isTrue(pageResult!=null && pageResult.getContent().size()>0);
+		Assert.assertTrue(pageResult!=null && pageResult.getContent().size()>0);
 	}
 	@Test
 	public void testGetAnalyzerResult() throws Exception{
@@ -39,7 +39,7 @@ public class SearcherServiceTestCase extends BaseServiceTestCase {
 		for(String s:res){
 			logger.debug("Word is:"+s);
 		}
-		Assert.isTrue(res!=null && res.length>0);
+		Assert.assertTrue(res!=null && res.length>0);
 	}
 	@Test
 	public void testGetKeywords() throws Exception{
@@ -52,6 +52,6 @@ public class SearcherServiceTestCase extends BaseServiceTestCase {
 				 container.println();
 			 }
 		}
-		Assert.isTrue(null!=container &&CollectionUtils.isNotEmpty(container.getWords()));
+		Assert.assertTrue(null!=container &&CollectionUtils.isNotEmpty(container.getWords()));
 	}
 }

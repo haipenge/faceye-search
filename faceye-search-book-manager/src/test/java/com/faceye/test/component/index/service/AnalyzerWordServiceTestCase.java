@@ -11,7 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.index.doc.AnalyzerWord;
 import com.faceye.component.index.service.AnalyzerWordService;
@@ -39,7 +39,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 	 */
 	@Before
 	public void set() throws Exception {
-		Assert.isTrue(analyzerWordService != null);
+		Assert.assertTrue(analyzerWordService != null);
 	}
 
 	/**
@@ -71,7 +71,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		entity.setWordCount(1);
 		this.analyzerWordService.save(entity);
 		List<AnalyzerWord> entites = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		AnalyzerWord entity = new AnalyzerWord();
 		this.analyzerWordService.save(entity);
 		List<AnalyzerWord> entites = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entites));
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entites));
 	}
 
 	@Test
@@ -89,7 +89,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 			this.analyzerWordService.save(entity);
 		}
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -98,7 +98,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		this.analyzerWordService.save(entity);
 		logger.debug(">>Entity id is:" + entity.getId());
 		AnalyzerWord e = this.analyzerWordService.get(entity.getId());
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -107,7 +107,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		this.analyzerWordService.save(entity);
 		this.analyzerWordService.remove(entity);
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -117,10 +117,10 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 			this.analyzerWordService.save(entity);
 		}
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 		this.analyzerWordService.removeAllInBatch();
 		entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -131,7 +131,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		}
 		this.analyzerWordService.removeAll();
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -145,7 +145,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		}
 		this.analyzerWordService.removeInBatch(entities);
 		entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isEmpty(entities));
+		Assert.assertTrue(CollectionUtils.isEmpty(entities));
 	}
 
 	@Test
@@ -155,7 +155,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 			this.analyzerWordService.save(entity);
 		}
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll();
-		Assert.isTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(entities) && entities.size() == 5);
 	}
 
 	@Test
@@ -166,15 +166,15 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 		}
 		Map<String, Object> searchParams = new HashMap<String, Object>();
 		Page<AnalyzerWord> page = this.analyzerWordService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getSize() == 5);
+		Assert.assertTrue(page != null && page.getSize() == 5);
 		searchParams.put("EQ_name", "test-10");
 		page = this.analyzerWordService.getPage(searchParams, 1, 5);
-		Assert.isTrue(page != null && page.getTotalElements() == 1);
+		Assert.assertTrue(page != null && page.getTotalElements() == 1);
 		searchParams = new HashMap<String, Object>();
 		searchParams.put("LIKE_name", "test");
 		page = this.analyzerWordService.getPage(searchParams, 1, 5);
 
-		Assert.isTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
+		Assert.assertTrue(page != null && page.getTotalElements() == 25 && page.getNumberOfElements() == 5);
 
 	}
 
@@ -187,7 +187,7 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 			id = entity.getId();
 		}
 		AnalyzerWord e = this.analyzerWordService.get(id);
-		Assert.isTrue(e != null);
+		Assert.assertTrue(e != null);
 	}
 
 	@Test
@@ -201,6 +201,6 @@ public class AnalyzerWordServiceTestCase extends BaseServiceTestCase {
 			}
 		}
 		List<AnalyzerWord> entities = this.analyzerWordService.getAll(ids);
-		Assert.isTrue(entities != null && entities.size() == 5);
+		Assert.assertTrue(entities != null && entities.size() == 5);
 	}
 }

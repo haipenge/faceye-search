@@ -4,7 +4,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.Assert;
+import org.junit.Assert;
 
 import com.faceye.component.search.doc.ArticleCategory;
 import com.faceye.component.search.repository.mongo.ArticleCategoryRepository;
@@ -34,24 +34,24 @@ public class ArticleCategoryRepositoryTestCase extends BaseRepositoryTestCase {
 		ArticleCategory entity = new ArticleCategory();
 		this.articleCategoryRepository.save(entity);
 		Iterable<ArticleCategory> entities = this.articleCategoryRepository.findAll();
-		Assert.isTrue(entities.iterator().hasNext());
+		Assert.assertTrue(entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testDelete() throws Exception {
 		ArticleCategory entity = new ArticleCategory();
 		this.articleCategoryRepository.save(entity);
-        this.articleCategoryRepository.delete(entity.getId());
+        this.articleCategoryRepository.deleteById(entity.getId());
         Iterable<ArticleCategory> entities = this.articleCategoryRepository.findAll();
-		Assert.isTrue(!entities.iterator().hasNext());
+		Assert.assertTrue(!entities.iterator().hasNext());
 	}
 
 	@Test
 	public void testFindOne() throws Exception {
 		ArticleCategory entity = new ArticleCategory();
 		this.articleCategoryRepository.save(entity);
-		ArticleCategory articleCategory=this.articleCategoryRepository.findOne(entity.getId());
-		Assert.isTrue(articleCategory!=null);
+		ArticleCategory articleCategory=this.articleCategoryRepository.findById(entity.getId()).get();
+		Assert.assertTrue(articleCategory!=null);
 	}
 
 	

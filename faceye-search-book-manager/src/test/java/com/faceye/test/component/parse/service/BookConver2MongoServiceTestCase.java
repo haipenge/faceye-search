@@ -17,6 +17,6 @@ public class BookConver2MongoServiceTestCase extends BaseServiceTestCase {
 	@Test
 	public void testBookConver2Mongo() throws Exception{
 		this.bookConver2MongoService.conver();
-		Assert.isTrue(1==1);
+		Assert.assertTrue(1==1);
 	}
 }

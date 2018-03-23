@@ -39,10 +39,10 @@ public class LinkServiceTestCase extends BaseServiceTestCase {
 		link.setType(1);
 		this.linkService.save(link);
 		boolean isExist = this.linkService.isLinkExist(url);
-		Assert.isTrue(isExist);
+		Assert.assertTrue(isExist);
 		url = "http://home.cnblogs.com/blog/page/1/ssf";
 		isExist = this.linkService.isLinkExist(url);
-		Assert.isTrue(!isExist);
+		Assert.assertTrue(!isExist);
 	}
 
 	/**
@@ -61,8 +61,8 @@ public class LinkServiceTestCase extends BaseServiceTestCase {
 		logger.debug("JSON is:" + json);
 		List<Link> json2Object = Json.toObject(json, new TypeReference<List<Link>>() {
 		});
-		Assert.isTrue(CollectionUtils.isNotEmpty(json2Object));
-		Assert.isTrue(json2Object.get(0) instanceof Link);
+		Assert.assertTrue(CollectionUtils.isNotEmpty(json2Object));
+		Assert.assertTrue(json2Object.get(0) instanceof Link);
 	}
 
 	@Test
@@ -76,11 +76,11 @@ public class LinkServiceTestCase extends BaseServiceTestCase {
 		api = host + remoteLinkDistributeApi;
 		String callResult = Http.getInstance().post(api, "UTF-8", params);
 		// String callResult = Http.getInstance().get(api, "UTF-8");
-		Assert.isTrue(StringUtils.isNotEmpty(callResult));
+		Assert.assertTrue(StringUtils.isNotEmpty(callResult));
 		if (StringUtils.isNotEmpty(callResult)) {
 			List<Link> links = Json.toObject(callResult, new TypeReference<List<Link>>() {
 			});
-			Assert.isTrue(CollectionUtils.isNotEmpty(links) && links.get(0) instanceof Link);
+			Assert.assertTrue(CollectionUtils.isNotEmpty(links) && links.get(0) instanceof Link);
 		}
 
 	}

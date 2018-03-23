@@ -16,6 +16,6 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 	public void testGetArticleByName() throws Exception{
 		String name="一步一步开发自己的博客站点（一） 需求分析 ";
 		Article article=this.searchArticleService.getArticleByName(name);
-		Assert.isTrue(article!=null);
+		Assert.assertTrue(article!=null);
 	}
 }

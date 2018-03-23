@@ -1,7 +1,7 @@
 package com.faceye.component.parse.repository.mongo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.querydsl.QueryDslPredicateExecutor;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 import com.faceye.component.parse.doc.FilterWord;
 import com.faceye.feature.repository.mongo.BaseMongoRepository;
