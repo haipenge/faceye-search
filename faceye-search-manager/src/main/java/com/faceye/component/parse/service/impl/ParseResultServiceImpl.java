@@ -40,7 +40,7 @@ import com.faceye.component.spider.util.URLUtils;
 //import com.faceye.component.spider.util.Http;
 import com.faceye.feature.service.SequenceService;
 import com.faceye.feature.service.impl.BaseMongoServiceImpl;
- 
+import com.google.common.base.Optional;
 import com.querydsl.core.BooleanBuilder;
 import com.querydsl.core.types.Predicate;
 
@@ -399,7 +399,7 @@ public class ParseResultServiceImpl extends BaseMongoServiceImpl<ParseResult, Lo
 
 	@Override
 	public List<FilterWord> testFilterWords(Long parseResultId) {
-		ParseResult parseResult = this.dao.findOne(parseResultId);
+		ParseResult parseResult = this.get(parseResultId);
 		String name = parseResult.getName();
 		String content = parseResult.getContent();
 		content = HtmlUtil.getInstance().replaceAll(content);

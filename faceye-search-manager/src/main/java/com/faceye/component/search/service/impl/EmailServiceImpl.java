@@ -33,8 +33,8 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 	private String csdn = "";
 	@Value("#{property['mail.xiaomi']}")
 	private String xiaomi = "";
-	@Autowired
-	private MailService mailService = null;
+//	@Autowired
+//	private MailService mailService = null;
 	@Autowired
 	private SearchArticleService searchArticleService = null;
 
@@ -153,7 +153,7 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 		List<Email> emails = this.getEmails(1, 1);
 		if (CollectionUtils.isNotEmpty(emails)) {
 			for (Email email : emails) {
-				this.send(email);
+//				this.send(email);
 				try {
 					Thread.sleep(2 * 1000L);
 				} catch (InterruptedException e) {
@@ -187,17 +187,17 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 		this.send(email);
 	}
 
-	@Override
-	public void send(Email email) {
-		List<Article> articles = this.searchArticleService.getPage(null, 1, 20).getContent();
-		Map body = new HashMap();
-		body.put("articles", articles);
-		Mail mail = new Mail();
-		mail.setSubject("This is a article test template.");
-		mail.setTemplate("faceye.net.mail.sender.template");
-		mail.setBody(body);
-		mail.setReceiver(email.getAddress());
-		this.mailService.sendMail(mail);
-	}
+//	@Override
+//	public void send(Email email) {
+//		List<Article> articles = this.searchArticleService.getPage(null, 1, 20).getContent();
+//		Map body = new HashMap();
+//		body.put("articles", articles);
+//		Mail mail = new Mail();
+//		mail.setSubject("This is a article test template.");
+//		mail.setTemplate("faceye.net.mail.sender.template");
+//		mail.setBody(body);
+//		mail.setReceiver(email.getAddress());
+//		this.mailService.sendMail(mail);
+//	}
 }
 /**@generate-service-source@**/

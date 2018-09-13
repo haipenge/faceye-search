@@ -27,5 +27,5 @@ public interface EmailService extends BaseService<Email,Long>{
 	
 	public void send(Long id);
 	
-	public void send(Email email);
+//	public void send(Email email);
 }/**@generate-service-source@**/

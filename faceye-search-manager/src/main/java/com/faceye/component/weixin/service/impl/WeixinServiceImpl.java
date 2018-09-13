@@ -44,7 +44,7 @@ public class WeixinServiceImpl extends BaseMongoServiceImpl<Weixin, Long, Weixin
 
 
 
-	@Override
+//	@Override
 	public void save(Weixin weixin) {
 		super.save(weixin);
 		Account account = this.accountService.getAccountByAppId(appId);
