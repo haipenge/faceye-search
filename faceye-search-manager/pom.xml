@@ -44,18 +44,19 @@
 			<artifactId>faceye-security-manager-mongo</artifactId>
 			<version>${faceye-security-manager-mongo.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-code-manager</artifactId>
 			<version>${faceye-code-manager.version}</version>
 		</dependency>
-		<!-- 
+		
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-mail-manager</artifactId>
 			<version>${faceye-mail-manager.version}</version>
 		</dependency>
-		 -->
+		 
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-stock-manager</artifactId>
@@ -66,7 +67,7 @@
 		  <artifactId>faceye-kindle-manager</artifactId>
 		  <version>${faceye-kindle-manager.version}</version>
 		</dependency>
-		<!-- -->
+		 -->
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-weixin-manager</artifactId>
@@ -197,6 +198,7 @@
 				</includes>
 				<filtering>true</filtering>
 			</resource>
+			<!-- 
 			<resource>
 				<directory>../../faceye-stock/faceye-stock-manager/src/main/resources</directory>
 				<includes>
@@ -222,6 +224,16 @@
 				<filtering>true</filtering>
 			</resource>
 			<resource>
+				<directory>../../faceye-code/faceye-code-manager/src/main/resources</directory>
+				<includes>
+					<include>tiles/manager/*.*</include>
+					<include>conf/applicationContext-job-source.xml</include>
+					<include>conf/applicationContext-job-source-product.xml</include>
+				</includes>
+				<filtering>true</filtering>
+			</resource>
+			 -->
+			<resource>
 				<directory>../../faceye-weixin/faceye-weixin-manager/src/main/resources</directory>
 				<includes>
 					<include>i18n/**</include>
@@ -231,15 +243,7 @@
 				</includes>
 				<filtering>true</filtering>
 			</resource>
-			<resource>
-				<directory>../../faceye-code/faceye-code-manager/src/main/resources</directory>
-				<includes>
-					<include>tiles/manager/*.*</include>
-					<include>conf/applicationContext-job-source.xml</include>
-					<include>conf/applicationContext-job-source-product.xml</include>
-				</includes>
-				<filtering>true</filtering>
-			</resource>
+			
 			<resource>
 				<directory>../../faceye-weixin/faceye-weixin-entity/src/main/resources</directory>
 				<includes>
@@ -252,7 +256,7 @@
 				<include>cms.properties</include> </includes> <filtering>true</filtering> 
 				</resource> <resource> <directory>../../faceye-cms/faceye-cms-entity/src/main/resources</directory> 
 				<includes> <include>i18n/**</include> </includes> <filtering>true</filtering> 
-				</resource> -->
+				</resource>
 			<resource>
 				<directory>../../faceye-mail-manager/src/main/resources</directory>
 				<includes>
@@ -262,6 +266,7 @@
 				</includes>
 				<filtering>true</filtering>
 			</resource>
+			 -->
 		</resources>
 		<plugins>
 			<plugin>
@@ -283,7 +288,7 @@
 						<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
 						<descriptor>src/main/webapp/WEB-INF/web.xml</descriptor>
 						<baseResource implementation="org.eclipse.jetty.util.resource.ResourceCollection">
-							<resourcesAsCSV>src/main/webapp,../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp,../../faceye-feature-mongo/src/main/webapp,../../faceye-stock/faceye-stock-manager/src/main/webapp,../../faceye-weixin/faceye-weixin-manager/src/main/webapp,../../faceye-feature/src/main/webapp,../../faceye-code/faceye-code-manager/src/main/webapp,../../faceye-kindle/faceye-kindle-manager/src/main/webapp</resourcesAsCSV>
+							<resourcesAsCSV>src/main/webapp,../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp,../../faceye-feature-mongo/src/main/webapp,../../faceye-weixin/faceye-weixin-manager/src/main/webapp,../../faceye-feature/src/main/webapp</resourcesAsCSV>
 						</baseResource>
 					</webApp>
 				</configuration>
@@ -323,6 +328,7 @@
 							</includes>
 						</configuration>
 					</execution>
+					<!-- 
 					<execution>
 						<id>native2ascii-utf8-resources-kindle-manager</id>
 						<phase>compile</phase>
@@ -353,6 +359,37 @@
 							</includes>
 						</configuration>
 					</execution>
+					<execution>
+						<id>native2ascii-utf8-resources-7</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>native2ascii</goal>
+						</goals>
+						<configuration>
+							<dest>target/classes/i18n</dest>
+							<src>../../faceye-code/faceye-code-manager/src/main/resources/i18n</src>
+							<encoding>UTF-8</encoding>
+							<includes>
+								*.properties
+							</includes>
+						</configuration>
+					</execution>
+					<execution>
+						<id>native2ascii-utf8-resources-8</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>native2ascii</goal>
+						</goals>
+						<configuration>
+							<dest>target/classes/i18n</dest>
+							<src>../../faceye-code/faceye-code-entity/src/main/resources/i18n</src>
+							<encoding>UTF-8</encoding>
+							<includes>
+								*.properties
+							</includes>
+						</configuration>
+					</execution>
+					 -->
 					<execution>
 						<id>native2ascii-utf8-resources-4</id>
 						<phase>compile</phase>
@@ -398,36 +435,7 @@
 							</includes>
 						</configuration>
 					</execution>
-					<execution>
-						<id>native2ascii-utf8-resources-7</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>native2ascii</goal>
-						</goals>
-						<configuration>
-							<dest>target/classes/i18n</dest>
-							<src>../../faceye-code/faceye-code-manager/src/main/resources/i18n</src>
-							<encoding>UTF-8</encoding>
-							<includes>
-								*.properties
-							</includes>
-						</configuration>
-					</execution>
-					<execution>
-						<id>native2ascii-utf8-resources-8</id>
-						<phase>compile</phase>
-						<goals>
-							<goal>native2ascii</goal>
-						</goals>
-						<configuration>
-							<dest>target/classes/i18n</dest>
-							<src>../../faceye-code/faceye-code-entity/src/main/resources/i18n</src>
-							<encoding>UTF-8</encoding>
-							<includes>
-								*.properties
-							</includes>
-						</configuration>
-					</execution>
+					
 				</executions>
 				<dependencies>
 					<dependency>
@@ -547,12 +555,17 @@
 								<resource>
 									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
+								<!-- 
 								<resource>
 									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
 								</resource>
+								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
 								<resource>
 									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
 								</resource>
@@ -562,9 +575,7 @@
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
 								</resource>
-								<resource>
-									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
-								</resource>
+								
 
 							</webResources>
 							<resourceEncoding>UTF-8</resourceEncoding>
@@ -615,6 +626,7 @@
 								<resource>
 									<directory>../../faceye-security-manaer-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
+								<!-- 
 								<resource>
 									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
 								</resource>
@@ -622,13 +634,14 @@
 									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
+								<resource>
 									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
-								</resource>
-								<resource>
-									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
@@ -683,6 +696,7 @@
 								<resource>
 									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
+								<!-- 
 								<resource>
 									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
 								</resource>
@@ -690,14 +704,16 @@
 									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
+								<resource>
 									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
 								</resource>
-								<resource>
-									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
-								</resource>
+								
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
 								</resource>
@@ -825,6 +841,7 @@
 								<resource>
 									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
+								<!-- 
 								<resource>
 									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
 								</resource>
@@ -832,14 +849,16 @@
 									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
+								<resource>
 									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
 								</resource>
-								<resource>
-									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
-								</resource>
+								
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
 								</resource>
@@ -887,6 +906,7 @@
 								<resource>
 									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
 								</resource>
+								<!-- 
 								<resource>
 									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
 								</resource>
@@ -894,13 +914,14 @@
 									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
+								<resource>
 									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
-								</resource>
-								<resource>
-									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
 								</resource>
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
@@ -917,8 +938,6 @@
 				</plugins>
 			</build>
 		</profile>
-
-		
 		<profile>
 			<id>jdk-1.7</id>
 			<activation>
