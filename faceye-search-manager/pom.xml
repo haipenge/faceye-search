@@ -35,6 +35,7 @@
 		<faceye-questionnaire-manager.version>1.0</faceye-questionnaire-manager.version>
 		<faceye-kindle-manager.version>1.0</faceye-kindle-manager.version>
 		-->
+		<quartz.version>2.3.0</quartz.version>
 	</properties>
 	<prerequisites>
 		<maven>3.0.0</maven>
@@ -164,6 +165,11 @@
 			<groupId>com.baidu</groupId>
 			<artifactId>ueditor-json</artifactId>
 			<version>${ueditor-json.version}</version>
+		</dependency>
+		<dependency>
+		<groupId>org.quartz-scheduler</groupId>
+		<artifactId>quartz</artifactId>
+		<version>${quartz.version}</version>
 		</dependency>
 	</dependencies>
 	<build>

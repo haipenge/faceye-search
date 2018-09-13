@@ -17,9 +17,7 @@ import com.faceye.component.parse.service.ParseService;
 import com.faceye.component.parse.service.document.Document;
 import com.faceye.component.parse.service.factory.Parse;
 import com.faceye.component.parse.service.factory.ParseFilter;
-import com.faceye.component.parse.service.factory.filter.CsjParseFilter;
 import com.faceye.component.parse.service.factory.filter.EmailParseFilter;
-import com.faceye.component.parse.service.factory.filter.KankandouParseFilter;
 import com.faceye.component.parse.service.factory.filter.LeMovieParseFilter;
 import com.faceye.component.parse.service.factory.filter.MovieBodyParseFilter;
 import com.faceye.component.parse.service.factory.filter.SuperBodyParseFilter;
@@ -149,12 +147,12 @@ public class SuperParseServiceImpl extends BaseParseServiceImpl implements Parse
 				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(LeMovieParseFilter.class);
 				filter.filter(document, crawlResult, content);
 			} else if (document.getLinkType() != null && document.getLinkType() == 2 && StringUtils.contains(document.getLinkUrl(), "wx.dm15.com")) {
-				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(CsjParseFilter.class);
-				filter.filter(document, crawlResult, content);
+//				ParseFilter filter = (ParseFilter) BeanContextUtil.getBean(CsjParseFilter.class);
+//				filter.filter(document, crawlResult, content);
 			} else if(document.getLinkType()!=null && document.getLinkType()==2 && StringUtils.contains(document.getLinkUrl(), "kankandou.com")){
 //				logger.debug(">>FaceYe parse trace 3->"+document.getLinkUrl());
-				ParseFilter filter=(ParseFilter) BeanContextUtil.getBean(KankandouParseFilter.class);
-				filter.filter(document, crawlResult, content);
+//				ParseFilter filter=(ParseFilter) BeanContextUtil.getBean(KankandouParseFilter.class);
+//				filter.filter(document, crawlResult, content);
 			} else {
 				if (StringUtils.isNotEmpty(document.getBody()) && StringUtils.isNotEmpty(document.getTitle())) {
 					res = true;
