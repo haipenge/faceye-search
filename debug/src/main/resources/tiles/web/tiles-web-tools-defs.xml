@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- Tools home ,Site Home page -->
+	<definition name="search.tools.home" extends="default.web">
+		<put-attribute name="default-center"
+			value="/component/search/tools/tools_center.jsp"></put-attribute>
+	</definition>
+	<!-- Tools Detail. -->
+	<definition name="search.tools.detail" extends="default.web">
+		<put-attribute name="default-center" value="search.tools.detail.center"></put-attribute>
+	</definition>
+	<definition name="search.tools.detail.center" extends="default.center">
+		<put-attribute name="default-center-left"
+			value="/component/search/tools/tools_detail_center_left.jsp"></put-attribute>
+		<put-attribute name="default-center-right"
+			value="/component/search/tools/tools_detail_center_right.jsp"></put-attribute>
+	</definition>
+
+	<!-- Regexp Tools -->
+	<definition name="search.tools.regexp" extends="search.tools.detail">
+		<put-attribute name="default-center" value="search.tools.regexp.center"></put-attribute>
+	</definition>
+	<definition name="search.tools.regexp.center" extends="search.tools.detail.center">
+		<put-attribute name="default-center-left"
+			value="/component/search/tools/tools_regexp_center_left.jsp"></put-attribute>
+		<put-attribute name="default-center-right"
+			value="/component/search/tools/tools_regexp_center_right.jsp"></put-attribute>
+	</definition>
+</tiles-definitions>

@@ -1,0 +1,9 @@
+User-Agent: *
+Allow:/
+Allow:/default
+Allow:/home
+Allow:/search
+Disallow:/images/
+Disallow:/js/
+Disallow:/css/
+Disallow:/component/

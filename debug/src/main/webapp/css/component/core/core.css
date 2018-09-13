@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+/**
+*说明:Article css样式表控制
+*作者:@haipenge
+*/
+body{
+	word-break:break-all;
+	font-size:13px;
+	line-height:21px;
+}

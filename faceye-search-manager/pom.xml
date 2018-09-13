@@ -49,11 +49,13 @@
 			<artifactId>faceye-code-manager</artifactId>
 			<version>${faceye-code-manager.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-mail-manager</artifactId>
 			<version>${faceye-mail-manager.version}</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>com.faceye</groupId>
 			<artifactId>faceye-stock-manager</artifactId>

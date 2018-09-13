@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+    <!-- 模块:search 业务对像:Movie 管理后台 tiles模板配置 -->
+    <!-- 作者:haipege -->
+    <!-- Movie 管理 首页(列表页) -->
+    <definition name="search.movie" extends ="default.web">
+        <put-attribute name="default-header" value="/component/core/template/web/default_movie_header.jsp"></put-attribute>
+    </definition>
+	<definition name="search.movie.home" extends="search.movie">
+	    
+	    <put-attribute name="default-center" value="/component/search/movie/movie_center.jsp"></put-attribute>
+	</definition>
+	
+	
+	<!-- Movie 明细页 -->
+	<definition name="search.movie.detail" extends="search.movie">
+	    <put-attribute name="default-center" value="/component/search/movie/movie_detail.jsp"></put-attribute>
+	</definition>
+	<!-- Movie 在线观看页 -->
+	<definition name="search.movie.view" extends="search.movie">
+	    <put-attribute name="default-center" value="/component/search/movie/movie_view.jsp"></put-attribute>
+	</definition>
+	
+	<definition name="search.movie.download" extends="search.movie">
+	    <put-attribute name="default-center" value="/component/search/movie/movie_download.jsp"></put-attribute>
+	</definition>
+	
+	<!-- 
+	<definition name="search.movie.detail.center" extends="default.center">
+	    <put-attribute name="default-center-right" value="/component/search/movie/movie_detail.jsp"></put-attribute>
+	</definition>
+	 -->
+	
+</tiles-definitions>
