@@ -29,11 +29,12 @@
 		<ueditor.version>1.4.3</ueditor.version>
 		<ueditor-json.version>1.0</ueditor-json.version>
 		<faceye-weixin-manager.version>1.0</faceye-weixin-manager.version>
-		<!-- <faceye-cms-manager.version>1.0</faceye-cms-manager.version> -->
+		<!-- <faceye-cms-manager.version>1.0</faceye-cms-manager.version> 
 		<faceye-mail-manager.version>1.0</faceye-mail-manager.version>
 		<faceye-code-manager.version>1.0</faceye-code-manager.version>
 		<faceye-questionnaire-manager.version>1.0</faceye-questionnaire-manager.version>
 		<faceye-kindle-manager.version>1.0</faceye-kindle-manager.version>
+		-->
 	</properties>
 	<prerequisites>
 		<maven>3.0.0</maven>
@@ -73,11 +74,13 @@
 			<artifactId>faceye-weixin-manager</artifactId>
 			<version>${faceye-weixin-manager.version}</version>
 		</dependency>
+		<!-- 
 		<dependency>
 		  <groupId>com.faceye</groupId>
 		  <artifactId>faceye-questionnaire-manager</artifactId>
 		  <version>1.0</version>
 		</dependency>
+		 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>servlet-api</artifactId>
@@ -713,11 +716,9 @@
 								<resource>
 									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
 								</resource>
-								
 								<resource>
 									<directory>../../faceye-feature/src/main/webapp</directory>
 								</resource>
-
 							</webResources>
 							<resourceEncoding>UTF-8</resourceEncoding>
 							<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
