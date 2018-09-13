@@ -15,8 +15,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import com.faceye.component.mail.service.MailService;
-import com.faceye.component.mail.service.wrap.Mail;
+//import com.faceye.component.mail.service.MailService;
+//import com.faceye.component.mail.service.wrap.Mail;
 import com.faceye.component.parse.util.RegexpConstants;
 import com.faceye.component.search.doc.Article;
 import com.faceye.component.search.doc.Email;
@@ -89,7 +89,7 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 					emails = new ArrayList<Email>(0);
 				}
 			}
-		} catch (ServiceException | IOException e1) {
+		} catch (  IOException e1) {
 			logger.error(">>FaceYe throws Exception: --->", e1);
 		}
 		this.save(emails);
@@ -134,7 +134,7 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 					emails = new ArrayList<Email>(0);
 				}
 			}
-		} catch (ServiceException | IOException e1) {
+		} catch (  IOException e1) {
 			logger.error(">>FaceYe throws Exception: --->", e1);
 		}
 		this.save(emails);
@@ -184,7 +184,7 @@ public class EmailServiceImpl extends BaseMongoServiceImpl<Email, Long, EmailRep
 	@Override
 	public void send(Long id) {
 		Email email = this.get(id);
-		this.send(email);
+//		this.send(email);
 	}
 
 //	@Override

@@ -44,8 +44,8 @@ public class WeixinServiceImpl extends BaseMongoServiceImpl<Weixin, Long, Weixin
 
 
 
-//	@Override
-	public void save(Weixin weixin) {
+	@Override
+	public Weixin save(Weixin weixin) {
 		super.save(weixin);
 		Account account = this.accountService.getAccountByAppId(appId);
 		if (account != null) {
@@ -65,6 +65,7 @@ public class WeixinServiceImpl extends BaseMongoServiceImpl<Weixin, Long, Weixin
 				this.responseContentItemService.save(responseContentItem);
 			}
 		}
+		return weixin;
 	}
 
 
