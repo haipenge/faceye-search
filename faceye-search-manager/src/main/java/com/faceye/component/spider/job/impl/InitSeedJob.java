@@ -2,6 +2,7 @@ package com.faceye.component.spider.job.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.spider.service.SiteLinkService;
@@ -48,12 +49,13 @@ public class InitSeedJob extends BaseJob {
 	@Qualifier("csjLinkService")
 	private SiteLinkService csjLinkService=null;
 	@Override
+	@Scheduled(cron="0 53 18 * * ?")
 	public void run()   {
 		logger.debug(">>Start to run init links ");
 //		this.segmentFaultLinkService.saveInitLinks();
 //		this.segmentFaultLinkService.reInitLinks();
 //		// 初始化cnblogs链接资源
-//		cnBlogsLinkService.saveInitLinks();
+		cnBlogsLinkService.saveInitLinks();
 //		// 重置cnblogs首页，博客园子首页，博客园子精华列表页
 //		cnBlogsLinkService.reInitLinks();
 //		// this.easouBLinkService.reInitLinks();

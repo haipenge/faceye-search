@@ -36,6 +36,6 @@ public class YiibaiParseServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|type", 2);
 		this.yiibaiParseService.saveParseResult();
 		Page<Link> page=this.linkService.getPage(searchParams, 1, 0);
-		Assert.assertTrue(null!=page && CollectionUtils.isNotEmpty(page.getContent()));
+		Assert.isTrue(null!=page && CollectionUtils.isNotEmpty(page.getContent()));
 	}
 }

@@ -2,10 +2,10 @@ package com.faceye.component.spider.job.impl;
 
 import org.quartz.DisallowConcurrentExecution;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.spider.service.CrawlService;
- 
 
 /**
  * 网页爬取JOB
@@ -20,7 +20,8 @@ public class CrawlJob extends BaseJob {
 	private CrawlService crawlService = null;
 
 	@Override
-	public void run()   {
+//	@Scheduled(cron = "0 0/2 * * * ?")
+	public void run() {
 		logger.debug(">>FaceYe --> crawl job,isJobRun:" + isJobRun);
 		if (!isJobRun) {
 			try {

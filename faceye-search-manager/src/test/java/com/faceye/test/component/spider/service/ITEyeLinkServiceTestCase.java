@@ -31,6 +31,6 @@ public class ITEyeLinkServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|site.id", site.getId());
 		searchParams.put("EQ|type", new Integer(1));
 		Page<Link> links = this.linkService.getPage(searchParams, 1, 100);
-		Assert.assertTrue(null != links && CollectionUtils.isNotEmpty(links.getContent()));
+		Assert.isTrue(null != links && CollectionUtils.isNotEmpty(links.getContent()));
 	}
 }

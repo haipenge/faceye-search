@@ -28,7 +28,7 @@ public class CsjParseTestCase {
 		Result result=Json.toObject(content, Result.class);
 		Assert.isNotNull(result);
 		logger.debug(result.getMessage()+":"+result.getStatus()+":"+result.getQuestion().size()+":"+result.getQuestion().get(0).getDatalist().get(0).getTitle());
-		Assert.assertTrue(result.getQuestion().size()>0);
+		Assert.isTrue(result.getQuestion().size()>0);
 	}
 	
 	@Test

@@ -7,6 +7,7 @@ import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.doc.ParseResult;
@@ -14,7 +15,6 @@ import com.faceye.component.parse.service.ParseResultService;
 import com.faceye.component.spider.doc.Link;
 import com.faceye.component.spider.service.LinkService;
 import com.faceye.feature.util.MD5Utils;
- 
 
 /**
  * 对Link[url]和parse result [name]进行签名，减少存储空间，提高排重速度
@@ -31,14 +31,15 @@ public class Md5SignJob extends BaseJob {
 	private ParseResultService parseResultService = null;
 
 	@Override
-	public void run()   {
-//		this.linkSign();
+//	@Scheduled(cron = "0 45 14 * * ?")
+	public void run() {
+		// this.linkSign();
 		this.parseResultSign();
 	}
 
 	private void linkSign() {
 		int page = 1;
-		Map params=new HashMap();
+		Map params = new HashMap();
 		params.put("isEmpty|sign", "");
 		Page<Link> links = this.linkService.getPage(params, page, 500);
 		while (links != null && CollectionUtils.isNotEmpty(links.getContent())) {
@@ -64,7 +65,7 @@ public class Md5SignJob extends BaseJob {
 
 	private void parseResultSign() {
 		int page = 1;
-		Map params=new HashMap();
+		Map params = new HashMap();
 		params.put("isEmpty|sign", "");
 		Page<ParseResult> parseResults = this.parseResultService.getPage(params, page, 500);
 		while (parseResults != null && CollectionUtils.isNotEmpty(parseResults.getContent())) {
@@ -80,7 +81,7 @@ public class Md5SignJob extends BaseJob {
 				} catch (InterruptedException e) {
 					logger.error(">>FaceYe Throws Exception:", e);
 				}
-				logger.debug(">>FaceYe --> Finish parse result sign name loop:"+page);
+				logger.debug(">>FaceYe --> Finish parse result sign name loop:" + page);
 				page++;
 				parseResults = this.parseResultService.getPage(null, page, 500);
 			} catch (Exception e) {

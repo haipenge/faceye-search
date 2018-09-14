@@ -24,13 +24,13 @@
 	<import resource="classpath*:/conf/applicationContext-config.xml" />
 	<import resource="classpath*:/conf/applicationContext-security.xml" />
 	<import resource="classpath*:/conf/applicationContext-mongo.xml" />
-	<import resource="classpath*:/conf/applicationContext-job.xml" />
-	<import resource="classpath*:/conf/applicationContext-mail.xml" />
-	<import resource="${x.app.job}" />
+	
+	<import resource="${x.app.job.spider}"/>
+	<!--
+	<import resource="classpath*:/conf/applicationContext-mail.xml" /> 
 	<import resource="${x.app.job.stock}"/>
-	<import resource="${x.app.job.weixin}"/>
 	<import resource="${x.app.job.push}"/>
-	<!-- 源码解析 -->
 	<import resource="classpath*:/conf/applicationContext-job-source.xml"/>
 	<import resource="${x.job.source}"/>
+	 -->
 </beans>

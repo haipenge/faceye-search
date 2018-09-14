@@ -38,6 +38,6 @@ public class YiibaiLinkServiceTestCase extends BaseServiceTestCase {
 		this.yiibaiLinkService.saveInitLinks();
 		site = this.yiibaiLinkService.getSite();
 		Page<Link> links = this.linkService.getPage(searchParams, 1, 0);
-		Assert.assertTrue(links != null && CollectionUtils.isNotEmpty(links.getContent()));
+		Assert.isTrue(links != null && CollectionUtils.isNotEmpty(links.getContent()));
 	}
 }

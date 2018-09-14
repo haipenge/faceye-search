@@ -35,7 +35,7 @@ public class EasouBParseServiceTestCase extends BaseServiceTestCase {
 		while (!isFinished) {
 //			isFinished = this.parseService.saveParseResult(5);
 		}
-		Assert.assertTrue(isFinished);
+		Assert.isTrue(isFinished);
 	}
 
 	/**

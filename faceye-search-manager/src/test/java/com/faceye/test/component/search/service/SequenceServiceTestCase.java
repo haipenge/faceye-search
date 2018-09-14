@@ -21,6 +21,6 @@ public class SequenceServiceTestCase extends BaseServiceTestCase {
 			Long nextSeq=this.sequenceServcie.getNextSequence("intest");
 			seqSum+=nextSeq;
 		}
-		Assert.assertTrue(loopISum==new Long(seqSum).intValue());
+		Assert.isTrue(loopISum==new Long(seqSum).intValue());
 	}
 }

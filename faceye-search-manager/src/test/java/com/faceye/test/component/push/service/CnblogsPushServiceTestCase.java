@@ -28,7 +28,7 @@ public class CnblogsPushServiceTestCase extends BaseServiceTestCase {
        logger.debug(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
        logger.debug(afterLoginPageTest);
        res=afterLoginPageTest.indexOf("添加新随笔")!=-1;
-       Assert.assertTrue(res);
+       Assert.isTrue(res);
 	}
 	
 	/**

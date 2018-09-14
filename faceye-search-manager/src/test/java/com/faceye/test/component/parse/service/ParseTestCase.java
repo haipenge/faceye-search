@@ -28,6 +28,6 @@ public class ParseTestCase extends BaseServiceTestCase {
 //		Assert.assertTrue(CollectionUtils.isNotEmpty(document.getLinks()));
 //		crawlResult=this.crawlResultService.get(211608L);
 //		document=this.parse.parse(crawlResult, clazzs);
-		Assert.assertTrue(StringUtils.isNotEmpty(document.getBody())&&StringUtils.isNotEmpty(document.getTitle()));
+		Assert.isTrue(StringUtils.isNotEmpty(document.getBody())&&StringUtils.isNotEmpty(document.getTitle()));
 	}
 }

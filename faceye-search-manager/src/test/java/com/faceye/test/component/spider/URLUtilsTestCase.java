@@ -24,22 +24,22 @@ public class URLUtilsTestCase extends BaseServiceTestCase{
 		String res="segmentfault.com";
 		String url="http://segmentfault.com/blog/izhuhaodev/1190000000358664";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 		url="http://www.segmentfault.com/blog/izhuhaodev/1190000000358664";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 		url="http://www.segmentfault.com/";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 		url="http://www.segmentfault.com";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 		url="http://segmentfault.com/";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 		url="http://segmentfault.com";
 		domain=URLUtils.getDomain(url);
-		Assert.assertTrue(StringUtils.equals(domain, res));
+		Assert.isTrue(StringUtils.equals(domain, res));
 	}
 	@Test
 	public void testGetRootDomain() throws Exception{
@@ -48,7 +48,7 @@ public class URLUtilsTestCase extends BaseServiceTestCase{
 			for(Site site:sites){
 				String rootDomain=URLUtils.getRootDomain(site.getUrl());
 				logger.debug(">>FaceYe Root Domain is :"+rootDomain+",source url is :"+site.getName());
-				Assert.assertTrue(StringUtils.isNotEmpty(rootDomain)&&rootDomain.indexOf("\\.")==-1);
+				Assert.isTrue(StringUtils.isNotEmpty(rootDomain)&&rootDomain.indexOf("\\.")==-1);
 			}
 		}
 	}

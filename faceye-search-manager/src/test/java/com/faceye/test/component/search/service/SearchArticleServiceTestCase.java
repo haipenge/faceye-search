@@ -63,7 +63,7 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 		Map searchParams = new HashMap();
 		searchParams.put("isIndexed", Boolean.FALSE);
 		Page<Article> articles = this.searchArticleService.getPage(searchParams, 1, 10);
-		Assert.assertTrue(articles != null && CollectionUtils.isNotEmpty(articles.getContent()) && articles.getContent().size() == 10);
+		Assert.isTrue(articles != null && CollectionUtils.isNotEmpty(articles.getContent()) && articles.getContent().size() == 10);
 	}
 
 	@Test
@@ -75,7 +75,7 @@ public class SearchArticleServiceTestCase extends BaseServiceTestCase {
 	public void testPush2Weixin() throws Exception {
 		String ids="64741,64746,64784";
 		boolean res=this.searchArticleService.push2Weixin(ids);
-		Assert.assertTrue(res);
+		Assert.isTrue(res);
 	}
 
 }

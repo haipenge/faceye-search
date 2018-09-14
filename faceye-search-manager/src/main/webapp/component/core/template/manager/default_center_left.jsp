@@ -3,7 +3,7 @@
 	contentType="text/html; charset=UTF-8"%>
 <div class="cl-sidebar" data-position="right">
 	<%
-		request.setAttribute("imageServer", HostUtil.getImageServer());
+		request.setAttribute("imageServer", DHostUtil.getImageServer());
 	%>
 	<!-- 
 	data-step="1" data-intro="<strong>Fixed Sidebar</strong> <br/> It adjust to your needs."
@@ -25,8 +25,7 @@
 				</div>
 				<ul class="cl-vnavigation">
 					<%@ include file="/component/core/template/manager/spider_default_center_left.jsp"%>
-					<%@ include file="/component/core/template/manager/faceye-code_default_center_left.jsp"%>
-					<%@ include file="/component/core/template/manager/faceye-kindle_default_center_left.jsp" %>
+					
 					<%@ include file="/component/core/template/manager/security_default_center_left.jsp"%>
 					
 					

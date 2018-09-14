@@ -1,6 +1,7 @@
 package com.faceye.component.spider.job.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.service.ParseResultService;
@@ -16,6 +17,7 @@ public class AutoPublishJob extends BaseJob {
 	@Autowired
 	private ParseResultService parseResultService=null;
 	@Override
+//	@Scheduled(cron = "0 0/8 * * * ?")
 	public void run()   {
 		parseResultService.saveAuthPublish();
 	}

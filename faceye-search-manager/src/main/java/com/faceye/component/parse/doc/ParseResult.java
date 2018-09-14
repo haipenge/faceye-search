@@ -13,8 +13,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.faceye.feature.util.MD5Utils;
 
-@Document(collection = "spider_parse_result_union")
-@CompoundIndexes({ @CompoundIndex(name = "global_index", def = "{'categoryId':1,'level':1,'siteId':1}",background=true) })
+@Document(collection = "spider_parse_result")
+@CompoundIndexes({ @CompoundIndex(name = "global_index", def = "{'categoryId':1,'level':1,'siteId':1}") })
 public class ParseResult implements Serializable {
 
 	/**
@@ -23,7 +23,6 @@ public class ParseResult implements Serializable {
 	private static final long serialVersionUID = 3203460817244723518L;
 
 	@Id
-	@Indexed(direction=IndexDirection.DESCENDING,background=true)
 	private Long id = null;
 
 	/**

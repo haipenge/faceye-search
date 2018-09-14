@@ -2,6 +2,7 @@ package com.faceye.component.spider.job.impl;
 
 import org.quartz.DisallowConcurrentExecution;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.spider.service.LinkService;
@@ -9,9 +10,8 @@ import com.faceye.feature.service.job.impl.BaseJob;
 
 /**
  * 重置种子链接
- * @author @haipenge 
- * haipenge@gmail.com
-*  Create Date:2015年3月12日
+ * 
+ * @author @haipenge haipenge@gmail.com Create Date:2015年3月12日
  */
 @Service
 @DisallowConcurrentExecution
@@ -20,6 +20,7 @@ public class ResetSeedLinkJob extends BaseJob {
 	private LinkService linkService = null;
 
 	@Override
+//	@Scheduled(cron = "0 0/59 * * * ?")
 	public void run() {
 		this.linkService.resetSeedLinks();
 	}

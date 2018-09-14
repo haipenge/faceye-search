@@ -2,6 +2,7 @@ package com.faceye.component.spider.job.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import com.faceye.component.parse.service.ParseResultService;
@@ -53,6 +54,7 @@ public class ParseJob extends BaseJob {
 	Boolean isJobRun = Boolean.FALSE;
 
 	@Override
+//	@Scheduled(cron="0 0/3 * * * ?")
 	public void run()   {
 		// 解析cnblogs页面
 		logger.error(">>>>>Parse Job Start ..is job run :"+isJobRun);

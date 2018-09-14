@@ -29,9 +29,9 @@ public class W3SchoolLinkServiceTestCase extends BaseServiceTestCase {
 		searchParams.put("EQ|site.id", site.getId());
 		searchParams.put("EQ|type", new Integer(1));
 		Page links=this.linkService.getPage(searchParams, 1, 0);
-		Assert.assertTrue(CollectionUtils.isEmpty(links.getContent()));
+		Assert.isTrue(CollectionUtils.isEmpty(links.getContent()));
 		this.w3SchoolLinkService.saveInitLinks();
 		links=this.linkService.getPage(searchParams, 1, 0);
-		Assert.assertTrue(CollectionUtils.isNotEmpty(links.getContent()));
+		Assert.isTrue(CollectionUtils.isNotEmpty(links.getContent()));
 	}
 }
