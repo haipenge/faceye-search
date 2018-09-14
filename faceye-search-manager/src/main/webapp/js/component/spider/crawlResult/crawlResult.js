@@ -141,5 +141,5 @@ var CrawlResult = {
 };
 $(document).ready(function() {
 	CrawlResult.init();
-	Copy.copy('#copy');
+//	Copy.copy('#copy');
 });
