@@ -49,7 +49,7 @@ public class InitSeedJob extends BaseJob {
 	@Qualifier("csjLinkService")
 	private SiteLinkService csjLinkService=null;
 	@Override
-	@Scheduled(cron="0 53 18 * * ?")
+//	@Scheduled(cron="0 53 18 * * ?")
 	public void run()   {
 		logger.debug(">>Start to run init links ");
 //		this.segmentFaultLinkService.saveInitLinks();
