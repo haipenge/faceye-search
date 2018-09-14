@@ -54,7 +54,7 @@ public class ParseJob extends BaseJob {
 	Boolean isJobRun = Boolean.FALSE;
 
 	@Override
-//	@Scheduled(cron="0 0/3 * * * ?")
+	@Scheduled(cron="0 0/3 * * * ?")
 	public void run()   {
 		// 解析cnblogs页面
 		logger.error(">>>>>Parse Job Start ..is job run :"+isJobRun);

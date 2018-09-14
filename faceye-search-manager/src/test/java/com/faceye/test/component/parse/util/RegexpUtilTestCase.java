@@ -26,8 +26,12 @@ public class RegexpUtilTestCase extends BaseServiceTestCase {
 
 	@Test
 	public void testDistillLinks() throws Exception {
+		String content=Http.getInstance().get("https://www.cnblogs.com/cate/java/", null);
+		String  regexp = "<a\\sclass=\"titlelnk\"\\shref=\"(.+?)\"\\starget=\"_blank\">.+?</a>";
+//		regexp="(https:\/\/www\.cnblogs\.com\/[.+]\/p\/[.+]\.html)";
+		regexp="(https:\\/\\/www\\.cnblogs\\.com\\/[.+]\\/p\\/[.+]\\.html)";
 		String path = "/work/Work/spider/crawl/20140708-21/com/cnblogs/20140708-213232-3.html";
-		List<Map<String, String>> res = RegexpUtil.match(FileUtil.getInstance().read(path), RegexpConstants.DISTIL_A_HREF);
+		List<Map<String, String>> res = RegexpUtil.match(content, regexp);
 		Assert.assertTrue(CollectionUtils.isNotEmpty(res));
 	}
 
