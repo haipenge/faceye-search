@@ -20,7 +20,7 @@
 		<jdk.version>1.8</jdk.version>
 		<jetty.version>9.0.2.v20130417</jetty.version>
 		<jetty.orbit.version>3.0.0.v201112011016</jetty.orbit.version>
-		<spring.version>5.0.4.RELEASE</spring.version>
+		<spring.version>5.1.3.RELEASE</spring.version>
 		<faceye-security-manager-mongo.version>1.0</faceye-security-manager-mongo.version>
 		<faceye-stock.version>1.0</faceye-stock.version>
 		<querydsl.version>4.2.0</querydsl.version>
