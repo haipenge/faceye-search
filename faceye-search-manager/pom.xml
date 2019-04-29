@@ -738,6 +738,74 @@
 			</build>
 		</profile>
 		<profile>
+			<id>aspire</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<build>
+				<filters>
+					<filter>src/main/filters/dev.properties</filter>
+				</filters>
+				<!-- <resources> <resource> <directory>src/main/webapp/jsp</directory> 
+					<filtering>true</filtering> <includes> <include>config.json</include> </includes> 
+					</resource> </resources> -->
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-war-plugin</artifactId>
+						<configuration>
+							<filters>
+								<filter>src/main/filters/dev.properties</filter>
+							</filters>
+							<archiveClasses>false</archiveClasses>
+							<webXml>src/main/webapp/WEB-INF/web.xml</webXml>
+							<warSourceExcludes>%regex[^.+(?:(?&lt;!(?:-|\.)min)\.js)]</warSourceExcludes>
+							<!-- <warSourceExcludes>js/component/app.js</warSourceExcludes> -->
+							<webResources>
+								<resource>
+									<directory>src/main/webapp</directory>
+									<!-- <excludes> <exclude>jsp/config.json</exclude> </excludes> -->
+									<filtering>true</filtering>
+								</resource>
+								<resource>
+									<directory>../../faceye-security-manager-mongo/faceye-security-manager-mongo/src/main/webapp</directory>
+								</resource>
+								<!-- 
+								<resource>
+									<directory>../../faceye-stock/faceye-stock-manager/src/main/webapp</directory>
+								</resource>
+								<resource>
+									<directory>../../faceye-kindle/faceye-kindle-manager/src/main/webapp</directory>
+								</resource>
+								<resource>
+									<directory>../../faceye-code/faceye-code-manager/src/main/webapp</directory>
+								</resource>
+								 -->
+								<resource>
+									<directory>../../faceye-weixin/faceye-weixin-manager/src/main/webapp</directory>
+								</resource>
+								<resource>
+									<directory>../../faceye-feature-mongo/src/main/webapp</directory>
+								</resource>
+								<resource>
+									<directory>../../faceye-feature/src/main/webapp</directory>
+								</resource>
+								
+
+							</webResources>
+							<resourceEncoding>UTF-8</resourceEncoding>
+							<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
+							<packingExcludes>
+								<exclude>/**/**/*jetty*.jar</exclude>
+							</packingExcludes>
+							<!-- <warSourceExcludes>**/*.js,**/*.css</warSourceExcludes> <warSourceExcludes>%regex[^.+(?:(?&lt;!(?:-|\.)min)\.js)]</warSourceExcludes> -->
+
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
 			<id>aliyun-index</id>
 			<activation>
 				<activeByDefault>false</activeByDefault>
