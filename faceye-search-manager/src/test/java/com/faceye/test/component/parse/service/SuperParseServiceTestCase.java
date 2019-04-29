@@ -24,7 +24,7 @@ public class SuperParseServiceTestCase extends BaseServiceTestCase {
 	
 	@Test
 	public void testPageParse() throws Exception{
-		CrawlResult crawlResult=this.crawlResultService.get(1327L);
+		CrawlResult crawlResult=this.crawlResultService.get(3L);
 		this.parseService.saveParseResult(crawlResult);
 	}
 }
