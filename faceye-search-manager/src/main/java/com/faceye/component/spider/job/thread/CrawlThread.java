@@ -120,7 +120,8 @@ public class CrawlThread extends BaseThread {
 					count++;
 					doCrawl(link);
 					crawlPages++;
-					Thread.sleep(3000 * count);
+//					Thread.sleep(3000 * count);
+					Thread.sleep(THREAD_SLEEP_SECONDS*1000L);
 					if (count > 3) {
 						count = 0;
 					}
