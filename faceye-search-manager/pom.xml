@@ -292,6 +292,9 @@
 				<version>${jetty.version}</version>
 				<configuration>
 					<scanIntervalSeconds>15000000</scanIntervalSeconds>
+					<stopPort>9966</stopPort>
+                    <stopKey>foo</stopKey>
+                    <stopWait>10</stopWait>
 					<webApp>
 						<contextPath>/</contextPath>
 						<defaultsDescriptor>src/main/resources/webdefault.xml</defaultsDescriptor>
