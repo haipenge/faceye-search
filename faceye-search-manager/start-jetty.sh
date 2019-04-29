@@ -9,4 +9,4 @@ if [[ -n $1 ]];then
 fi
 echo 'Now,Build Env is:',$build_env
 git pull
-mvn clean compile jetty:run -D maven.test.skip=true -D jetty.port=8081 -P $build_env
+mvn clean compile jetty:run -D maven.test.skip=true -D jetty.port=8081 -P $build_env &
