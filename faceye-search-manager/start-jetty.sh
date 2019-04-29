@@ -1,3 +1,4 @@
+#!/bin/bash
 #Run faceye-search-mamager with jetty,because Weixin security in resin is unabled.
 echo `ps aux|grep jetty |grep -v grep  | awk '{print $2}'|xargs kill -9`
 build_env = 'product'
