@@ -747,7 +747,7 @@
 			</activation>
 			<build>
 				<filters>
-					<filter>src/main/filters/dev.properties</filter>
+					<filter>src/main/filters/aspire.properties</filter>
 				</filters>
 				<!-- <resources> <resource> <directory>src/main/webapp/jsp</directory> 
 					<filtering>true</filtering> <includes> <include>config.json</include> </includes> 
